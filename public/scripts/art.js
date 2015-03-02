@@ -20,18 +20,3 @@ app.controller('artCtrl', function() {
 app.config(function($logProvider){
     $logProvider.debugEnabled(true);
 });
-
-
-app.directive("siteHead", function () {
-    return {
-        restrict: 'E',
-        templateUrl: "/views/site-head.html"
-    };
-});
-
-app.directive("imgPanel", function () {
-    return {
-        restrict: 'E',
-        templateUrl: "/views/img-panel.html"
-    };
-});

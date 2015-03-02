@@ -26,7 +26,7 @@
   </head>
 
 <!-- Begin Header -->
-<site-head ng-siteHead></site-head>
+<% include site-head.html  %>
 
 
 <body ng-app = "artBoard" ng-controller = "artCtrl as arts">
@@ -68,7 +68,7 @@
     <h1>Highest Ranked Art <small><a class ="btn btn-default" href="./top-writing" role = "button"> More </a></p></small></h1>
 
     <div class = "col-md-4" ng-repeat="imgart in arts.imgArt">
-      <img-panel ng-imgPanel> </img-panel>
+      <% include img-panel.html  %>
     </div>
 </div>
 
