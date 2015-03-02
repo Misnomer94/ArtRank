@@ -9,6 +9,12 @@
     <script src="../app/bower_components/angular/angular.js"></script>
     <script src="../scripts/art.js"></script>
 
+    <script src="../app/bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="../app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+
     <!-- Bootstrap -->
     <link href="../app/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
@@ -21,16 +27,32 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
+<!-- Begin Header -->
 <header class="navbar navbar-inverse navbar-fixed-top" role="banner" ng-if=" !layout ">
-    <div class="container">
+    <div class="container ">
         <div class="navbar-header">
             <a href="./home.html" class="navbar-brand pull-left">ArtRank</a>
         </div>
         <nav class="collapse navbar-collapse spa-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="./vote">Vote</a>
-                </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Vote <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Visual Art</a></li>
+                  <li><a href="#">Writing</a></li>
+                  <li><a href="#">Music</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gallery <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Visual Art</a></li>
+                  <li><a href="#">Writing</a></li>
+                  <li><a href="#">Music</a></li>
+                </ul>
+              </li>
                 <li>
                     <a href="./faq">FAQ</a>
                 </li>
@@ -44,6 +66,8 @@
     </div>
 </header>
 
+
+
 <body ng-app = "artBoard" ng-controller = "artCtrl as arts">
   <div class = "container">
     <div class="jumbotron">          <!-- Set this to only show if a user is logged in -->
@@ -54,6 +78,8 @@
   </div>
 
   <div class = "container">
+
+
     <div class="row">
       <h1>Highest Ranked Writing <small><a class ="btn btn-default" href="./top-writing" role = "button"> More </a></p></small></h1>
 
@@ -65,7 +91,7 @@
               <cite> By: {{txtart.artist}}</cite>
           </div>
 
-          <div class="panel-body">
+          <div class="panel-body home-panel">
               <div class="col-md-10">
                   <p class = "text-justify"> {{txtart.txt}} </p>
               </div>
@@ -73,6 +99,8 @@
         </div>
       </div>
     </div>
+
+
 
 
    <div class="row">
