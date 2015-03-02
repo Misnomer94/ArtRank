@@ -9,3 +9,10 @@ describe('User', function(){
     })
   })
 })
+
+describe('input', function() {
+	it('should be adc', function(done) {
+		var input = getInput();
+		assert.equal('abc', getInput());
+	});
+});
