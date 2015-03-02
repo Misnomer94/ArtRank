@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
 
+    <script src="../app/bower_components/angular/angular.js"></script>
+    <script src="../scripts/art.js"></script>
+
     <!-- Bootstrap -->
     <link href="../app/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
@@ -21,7 +24,7 @@
 <header class="navbar navbar-inverse navbar-fixed-top" role="banner" ng-if=" !layout ">
     <div class="container">
         <div class="navbar-header">
-            <a href="./" class="navbar-brand pull-left">ArtRank</a>
+            <a href="./home.html" class="navbar-brand pull-left">ArtRank</a>
         </div>
         <nav class="collapse navbar-collapse spa-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
@@ -41,7 +44,7 @@
     </div>
 </header>
 
-<body>
+<body ng-app = "artBoard" ng-controller = "artCtrl as arts">
   <div class = "container">
     <div class="jumbotron">          <!-- Set this to only show if a user is logged in -->
       <h1>Welcome to ArtRank!</h1>
@@ -54,23 +57,47 @@
     <div class="row">
       <h1>Highest Ranked Writing <small><a class ="btn btn-default" href="./top-writing" role = "button"> More </a></p></small></h1>
 
-      </button>"</small></h1>
-      <div class="col-md-4">
-            <h4> Test document by fake person</h4>
-            <p> fake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake text </p>
+      <div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
+        <div class="panel panel-primary">
+
+          <div class="panel-heading">
+              <h3>{{txtart.title}}</h3>
+              <cite> By: {{txtart.artist}}</cite>
+          </div>
+
+          <div class="panel-body">
+              <div class="col-md-10">
+                  <p class = "text-justify"> {{txtart.txt}} </p>
+              </div>
+          </div>
+        </div>
       </div>
-    <div class="col-md-4">
-          <h4> Test document by fake person</h4>
-          <p> fake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake text </p>
     </div>
-    <div class="col-md-4">
-          <h4> Test document by fake person</h4>
-          <p> fake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake textfake text </p>
+
+
+   <div class="row">
+    <h1>Highest Ranked Art <small><a class ="btn btn-default" href="./top-writing" role = "button"> More </a></p></small></h1>
+
+    <div class = "col-md-4" ng-repeat="imgart in arts.imgArt">
+    <div class="panel panel-primary"  ng-init="expand = 0">
+
+        <div class="panel-heading">
+            <h3>{{imgart.title}}</h3>
+            <cite> By: {{imgart.artist}}</cite>
+        </div>
+
+        <div class="panel-body">
+            <div class="col-md-10" ng-click="expand = 1">
+                <img class="img-responsive" ng-src="{{imgart.img}}" />
+            </div>
+        </div>
+
+        <div class="expanded-img" ng-show="expand == 1" ng-click="expand = 0">
+            <img ng-src="{{imgart.img}}" />
+        </div>
+      </div>
     </div>
   </div>
-
-
-
 
 
 </html>
