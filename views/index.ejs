@@ -16,6 +16,8 @@
     <!-- Bootstrap -->
     <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="/css/default.css" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +32,18 @@
 
 
 <body ng-app = "artBoard" ng-controller = "artCtrl as arts">
-  <div class = "container">
+
+
+  <div id="wrapper">
+
+
+
+    <% include sidebar.html  %>
+
+
+
+  <div id="page-content-wrapper">
+  <div class = "container-fluid">
     <div class="jumbotron">          <!-- Set this to only show if a user is logged in -->
       <h1>Welcome to ArtRank!</h1>
       <p>The only art website designed for artists, not advertisers</p>
@@ -38,7 +51,7 @@
     </div>
   </div>
 
-  <div class = "container">
+  <div class = "container-fluid">
 
 
     <div class="row">
@@ -71,6 +84,12 @@
       <% include img-panel.html  %>
     </div>
 </div>
+
+</div>
+
+</div>
+
+</body
 
 
 </html>

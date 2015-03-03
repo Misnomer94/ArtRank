@@ -1,9 +1,14 @@
 body {
   padding-top: 60px;
+  margin-right: auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.428571429;
   color: #333333;
   background-color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .expanded-img {
@@ -20,4 +25,11 @@ body {
 .home-panel {
   max-height: 300px;
   overflow-y:auto;
+}
+
+
+@media(min-width:1570px){
+  body{
+    padding-right: 350px;
+  }
 }
