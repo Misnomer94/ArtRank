@@ -1,6 +1,7 @@
 body {
   padding-top: 60px;
   margin-right: auto;
+  margin-left: auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.428571429;
   color: #333333;
@@ -31,16 +32,10 @@ body {
   max-height: 270px;
   text-align: center;
   width: auto;
+  margin: auto;
   vertical-align: middle;
 }
 
 .txt-panel {
   overflow-y:auto;
-}
-
-
-@media(min-width:1570px){
-  body{
-    padding-right: 350px;
-  }
 }
