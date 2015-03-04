@@ -23,7 +23,18 @@ body {
 }
 
 .home-panel {
+  min-height: 300px;
   max-height: 300px;
+}
+
+.img-in-panel{
+  max-height: 270px;
+  text-align: center;
+  width: auto;
+  vertical-align: middle;
+}
+
+.txt-panel {
   overflow-y:auto;
 }
 
