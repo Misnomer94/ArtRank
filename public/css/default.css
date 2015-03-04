@@ -39,3 +39,28 @@ body {
 .txt-panel {
   overflow-y:auto;
 }
+
+.sidebar-toggle {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  z-index: 998;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+}
+
+@media(max-width:1100px) {
+
+  #sidebar-toggle {
+    margin-left: -100%;
+    visibility: hidden;
+
+  }
+
+}
