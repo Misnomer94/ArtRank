@@ -5,24 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var fs = require('fs');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
 /*Connection to mongolab in parameters*/
 mongoose.connect('mongodb://artrankbackend:danadonis123@ds049161.mongolab.com:49161/artrankdb');
 
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-  var userSchema = mongoose.Schema({
-    username: String,
-    password: String,
-    email: String
-  }, { collection : 'Users' })
-});
 
+//load all files in models dir
+
+fs.readdirSync(__dirname + '/models').forEach(function(filename){
+  if(~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
