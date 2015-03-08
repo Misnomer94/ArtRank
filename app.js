@@ -11,7 +11,7 @@ var users = require('./routes/users');
 
 var app = express();
 /*Connection to mongolab in parameters*/
-mongoose.connect('mongodb://adonis:artrankbackend@ds053251.mongolab.com:53251/artrankdb');
+mongoose.connect('mongodb://artrankbackend:danadonis123@ds049161.mongolab.com:49161/artrankdb');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -21,7 +21,6 @@ db.once('open', function (callback) {
     password: String,
     email: String
   }, { collection : 'Users' })
-var User = mongoose.model('User', userSchema);
 });
 
 
