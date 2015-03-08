@@ -6,18 +6,19 @@ var mongoose = require('mongoose');
 router.get('/', function(req, res, next) {
 
 
-  mongoose.model('users').find(function(err, users){
+  mongoose.model('users').findOne({}, function(err, user){
+    res.render('index', { title: 'Express', user: user });
 
-    console.log(users);
+    console.log(user);
 
   });
 
-
-
-
-
-  res.render('index', { title: 'Express' });
 });
+
+
+
+
+
 
 
 
