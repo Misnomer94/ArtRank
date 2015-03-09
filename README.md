@@ -17,7 +17,7 @@ To install *Bower* globally on your machine, run `sudo npm install -g bower`.
 
 First, `clone` the ArtRank website repository from GitHub in order to get a local copy of the site on your machine, then `cd` to the project directory.
 
-Once you are in the ArtRAnk website directory, run the following command to install the necessary project dependencies: `sudo npm install; bower install`.
+Once you are in the ArtRank website directory, run the following command to install the necessary project dependencies: `sudo npm install; bower install`.
 
 Finally, to execute various deployment tasks, and to start the web server locally on your machine, run: `sudo npm start`.
 
