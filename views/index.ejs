@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ArtRank</title>
+    
+	<title>ArtRank</title>
 
     <script src="lib/angular/angular.js"></script>
     <script src="/scripts/art.js"></script>
@@ -31,14 +32,9 @@
 
 <body ng-app = "artBoard" ng-controller = "artCtrl as arts">
 
-
   <div id="wrapper">
 
-
-
     <% include sidebar.html  %>
-
-
 
   <div id="page-content-wrapper">
   <div class = "container-fluid">
@@ -56,19 +52,7 @@
       <h1>Highest Ranked Writing <small><a class ="btn btn-default" href="./top-writing" role = "button"> More </a></p></small></h1>
 
       <div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
-        <div class="panel panel-primary">
-
-          <div class="panel-heading">
-              <h3>{{txtart.title}}</h3>
-              <cite> By: {{txtart.artist}}</cite>
-          </div>
-
-          <div class="panel-body home-panel txt-panel">
-              <div class="container-fluid">
-                  <p class = "text-justify"> {{txtart.txt}} </p>
-              </div>
-          </div>
-        </div>
+	<% include writing-panel.html %>
       </div>
     </div>
 
@@ -82,7 +66,16 @@
       <% include img-panel.html  %>
     </div>
 </div>
-
+<div class="row">
+					<h1>Highest Ranked Music 
+					<small><a class ="btn btn-default" href="./top-audio" role = "button">
+						 More </a></p></small></h1>	
+					<div class = "col-md-4" ng-repeat="imgart in arts.audioArt">
+      	
+						<% include audio-panel.html  %>
+				
+					</div>
+				</div>
 </div>
 
 </div>
