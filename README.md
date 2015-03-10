@@ -1,6 +1,6 @@
 # ArtRank
 
-# Development Enviroment Setup
+# Development Environment Setup
 
 To get the ArtRank website up and running locally on your machine, you should make sure to install all of the necessary development dependencies listed below.
 
@@ -9,7 +9,7 @@ To get the ArtRank website up and running locally on your machine, you should ma
 
 To check whether you have *Node.js* installed, run `node -v`.
 
-To check whether you have *npm* installed, rum `npm -v`.
+To check whether you have *npm* installed, run `npm -v`.
 
 To install *Bower* globally on your machine, run `sudo npm install -g bower`.
 
