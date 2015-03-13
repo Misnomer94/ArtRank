@@ -1,54 +1,50 @@
-//var assert = require('chai').assert;
-//var should = require('chai').should;
-//require(['chai']);
+'use strict';
 
-//var chai = require('chai');
-//var expect = chai.expect;
-/*require(['chai'], function() {
+describe('Art', function() {
 
-});*/
-//var expect = require('chai').expect;
+	beforeEach(module('artBoard'));
+	describe('art.js tests', function(){
+		
+		it('should return correct length of imgArt and txtArt', inject(function($controller) {
+			var ctrl = $controller('artCtrl', ['Art', function(Art){
+				this.imgArt = getImgArt();
+				this.txtArt = getTxtArt();
+			}]);
 
-/*describe('Array', function(){
-  describe('#indexOf()', function(){
-    it('should return -1 when the value is not present', function(){
-      assert.equal(-2, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
-    });
-  });
-});*/
+			expect(ctrl.imgArt.length).to.equal(3);
+			expect(ctrl.txtArt.length).to.equal(3);
+		}));
 
-describe('Practice', function() {
-	it('should return false since 2 does not equal 1', function() {
-		assert.equal((1),(1));
-	});
+		it('should return the correct fields of imgArt and txtArt', inject(function($controller) {
+			var ctrl = $controller('artCtrl', ['Art', function(Art){
+				this.imgArt = getImgArt();
+				this.txtArt = getTxtArt();
+			}]);
+
+			var img = [
+			{artist: 'Place Holder', title: 'Washington', img: '../images/600x600.gif'},
+			{artist: 'Place Holder', title: 'Washi', img: '../images/300.gif'},
+			{artist: 'Place Holder', title: 'Wngton', img: '../images/1000x500.gif'}];
+
+			var txt = [
+			{artist: 'Place Holdeer', title: 'Abstract Art', txt: 'Placeholder texweofoiebgoegril erough oewri oergh woeirgj ekgbe riv eirg erugh ernek rioeru ier t Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
+			{artist: 'Place Holdeer', title: 'Art of a different sort', txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder  regioher wiguh  eriogh eiuotext Placeholder text Placeholder text Placeholder text'},
+			{artist: 'Place Holdeer', title: 'Wahingtof', txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'}];
+
+			for(var i = 0; i < ctrl.imgArt.length; i++){ 
+				expect(ctrl.imgArt[i].artist).to.equal(img[i].artist);
+				expect(ctrl.imgArt[i].title).to.equal(img[i].title);
+				expect(ctrl.imgArt[i].img).to.equal(img[i].img);
+
+				expect(ctrl.txtArt[i].artist).to.equal(txt[i].artist);
+				expect(ctrl.txtArt[i].title).to.equal(txt[i].title);
+				expect(ctrl.txtArt[i].txt).to.equal(txt[i].txt);
+			}
+		}));
+});
 });
 
-/*
-describe('Art', function() {
-	beforeEach(module('artBoard'));
-	it('should create art and txtArt with 3 fields each', inject(function($service) {
-		var imgArt = {},
-			txtArt = {},
-			ctrl = $service('Art', {$imgArt:imgArt, $txtArt:txtArt});
-		expect(imgArt.length).toBe(3);
-		expect(txtArt.length).toBe(3);
-	}));
-}
-	it('should return the correct fields', inject(function($service)) {
-		var imgArt = [{artist: 'Place Holder', title: 'Washington', img: '../images/600x600.gif'},
-    				  {artist: 'Place Holder', title: 'Washi', img: '../images/300.gif'},
-    				  {artist: 'Place Holder', title: 'Wngton', img: '../images/1000x500.gif'}]
-
-			txtArt = [{artist: 'Place Holdeer', title: 'Abstract Art', txt: 'Placeholder texweofoiebgoegril erough oewri oergh woeirgj ekgbe riv eirg erugh ernek rioeru ier t Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
-    				  {artist: 'Place Holdeer', title: 'Art of a different sort', txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder  regioher wiguh  eriogh eiuotext Placeholder text Placeholder text Placeholder text'},
-    				  {artist: 'Place Holdeer', title: 'Wahingtof', txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'}]
-
-			ctrl = $service('Art', {$imgArt=imgArt, $txtArt=txtArt});
-	});
-});*/
-/*
-describe('input', function() {
+/*describe('input', function() {
 	before(function() {
 		console.log("input should be abc")
 	});
