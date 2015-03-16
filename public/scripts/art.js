@@ -14,9 +14,12 @@ app.service('Art', function() {
   ];
 
   var txtArt = [
-    {artist: 'Place Holdeer', title: 'Abstract Art', txt: 'Placeholder texweofoiebgoegril erough oewri oergh woeirgj ekgbe riv eirg erugh ernek rioeru ier t Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
-    {artist: 'Place Holdeer', title: 'Art of a different sort', txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder  regioher wiguh  eriogh eiuotext Placeholder text Placeholder text Placeholder text'},
-    {artist: 'Place Holdeer', title: 'Wahingtof', txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
+    {artist: 'Place Holdeer', title: 'Abstract Art', 
+txt: 'Placeholder texweofoiebgoegril erough oewri oergh woeirgj ekgbe riv eirg erugh ernek rioeru ier t Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
+    {artist: 'Place Holdeer', title: 'Art of a different sort', 
+txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder  regioher wiguh  eriogh eiuotext Placeholder text Placeholder text Placeholder text'},
+    {artist: 'Place Holdeer', title: 'Wahingtof', 
+txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
 
 
   ];
@@ -36,7 +39,6 @@ app.service('Art', function() {
 
 app.controller('artCtrl', ['Art', function(Art) {
   this.imgArt = Art.getImgArt();
-
   this.txtArt = Art.getTxtArt();
 }]);
 
