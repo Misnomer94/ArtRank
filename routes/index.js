@@ -19,10 +19,6 @@ router.get('/vote', function(req, res, next) {
   res.render('vote', { title: 'Express', user: user });
 });
 
-router.get('/faq', function(req, res, next) {
-  res.render('faq', { title: 'FAQ', null });
-});
-
 
 
 

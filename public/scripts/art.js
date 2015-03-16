@@ -13,6 +13,12 @@ app.service('Art', function() {
 	{artist: 'Place Holder', title: 'Bricks', img: '../images/brick-wallpaper.jpg'},
   ];
 
+  var audioArt = [
+    	{artist: 'Place Holder', title: 'Washington', audio: '../images/preview.mp3'},
+    	{artist: 'Place Holder', title: 'Washi', audio: '../images/preview (1).mp3'},
+    	{artist: 'Place Holder', title: 'Wngton', audio: '../images/preview (2).mp3'},
+  ];
+
   var txtArt = [
     {artist: 'Place Holdeer', title: 'Abstract Art', 
 txt: 'Placeholder texweofoiebgoegril erough oewri oergh woeirgj ekgbe riv eirg erugh ernek rioeru ier t Placeholder text Placeholder text Placeholder text Placeholder textPlaceholder text Placeholder text Placeholder text Placeholder text'},
