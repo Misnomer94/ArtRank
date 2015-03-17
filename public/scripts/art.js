@@ -39,6 +39,9 @@ txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeh
       return txtArt;
     },
 
+    getAudioArt: function(){
+      return audioArt;
+    },
   }
 
 });
@@ -46,6 +49,7 @@ txt: 'Placeholder text Placeholder text Placeholder text Placeholder text Placeh
 app.controller('artCtrl', ['Art', function(Art) {
   this.imgArt = Art.getImgArt();
   this.txtArt = Art.getTxtArt();
+  this.audioArt = Art.getAudioArt();
 }]);
 
 
