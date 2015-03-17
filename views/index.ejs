@@ -7,6 +7,7 @@
     
 	<title>ArtRank</title>
 
+    <script src="lib/audiojs/audio.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="/scripts/art.js"></script>
     <script src="lib/jquery/dist/jquery.js"></script>
@@ -17,6 +18,12 @@
     <link href="/css/default.css" rel="stylesheet">
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
+<!-- Priming audio-->
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,7 +85,7 @@
 					<h1>Highest Ranked Music 
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
 						 More </a></p></small></h1>	
-					<div class = "col-md-4" ng-repeat="audioart in arts.audArt">
+					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
       	
 						<% include audio-panel.html  %>
 				

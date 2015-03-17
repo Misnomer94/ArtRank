@@ -7,13 +7,9 @@
         <cite><h5> By: {{audioart.artist}}</h5></cite>
     </div>
 
-    <div class="panel-body home-panel fixed-size-panel">
-        <div class="container-fluid" ng-click="expand = 1">
-		<audio controls>
-			<source src="{{audioart.audio}}" type="audio/ogg">
- 			<source src="{{audioart.audio}}" type="audio/mpeg">
-			Your browser does not support the audio element.
+    
+		<audio src="{{audioart.audio}}" type="audio/mpeg" preload="auto">
+			Oops, no support.
 		</audio>
-        </div>
-    </div>
+       
 </div>
