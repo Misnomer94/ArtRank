@@ -16,8 +16,29 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/vote', function(req, res, next) {
-  res.render('vote', { title: 'Express', user: user });
+
+
+  mongoose.model('users').findOne({}, function(err, user){
+    res.render('vote', { title: 'Express', user: user });
+
+    console.log(user);
+
+  });
+
 });
+
+router.get('/upload', function(req, res, next) {
+
+
+  mongoose.model('users').findOne({}, function(err, user){
+    res.render('upload', { title: 'Express', user: user });
+
+    console.log(user);
+
+  });
+
+});
+
 
 
 module.exports = router;
