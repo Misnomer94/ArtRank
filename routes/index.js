@@ -20,15 +20,4 @@ router.get('/vote', function(req, res, next) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router;

@@ -36,6 +36,12 @@ body {
   vertical-align: middle;
 }
 
+.blue-panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #0000ff;
+  border-color: #0000ff;
+}
+
 .txt-panel {
   overflow-y:auto;
 }
