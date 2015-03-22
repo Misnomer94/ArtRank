@@ -10,4 +10,4 @@ var contentSchema = new Schema({
   location: String
 });
 
-mongoose.model('content', contentSchema);
+module.exports = mongoose.model('content', contentSchema);

@@ -10,6 +10,7 @@ var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var content = require('./routes/content');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use('/lib', express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/content', content);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
