@@ -12,7 +12,7 @@ describe('Art', function() {
 				this.audioArt = getAudioArt();
 			}]);
 
-			expect(ctrl.imgArt.length).to.equal(3);
+			expect(ctrl.imgArt.length).to.equal(8);
 			expect(ctrl.txtArt.length).to.equal(3);
 			expect(ctrl.audioArt.length).to.equal(3);
 		}));
@@ -48,14 +48,16 @@ describe('Art', function() {
 				expect(ctrl.imgArt[i].artist).to.equal(img[i].artist);
 				expect(ctrl.imgArt[i].title).to.equal(img[i].title);
 				expect(ctrl.imgArt[i].img).to.equal(img[i].img);
-
+			}
+			for(var i = 0; i < ctrl.txtArt.length; i++){
 				expect(ctrl.txtArt[i].artist).to.equal(txt[i].artist);
 				expect(ctrl.txtArt[i].title).to.equal(txt[i].title);
 				expect(ctrl.txtArt[i].txt).to.equal(txt[i].txt);
-                
+                }
+            for(var i =0; i < ctrl.audioArt.length; i++){
 				expect(ctrl.audioArt[i].artist).to.equal(audio[i].artist);
 				expect(ctrl.audioArt[i].title).to.equal(audio[i].title);
-				expect(ctrl.audioArt[i].txt).to.equal(audio[i].audio);
+				expect(ctrl.audioArt[i].audio).to.equal(audio[i].audio);
 			}
 		}));
 });
