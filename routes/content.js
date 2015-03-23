@@ -3,8 +3,8 @@ var express = require('express');
 var router = express.Router();
 
 
-router.route('/content').get(function(req, res) {
-  Movie.find(function(err, content) {
+router.get('/', function(req, res) {
+  Content.findOne({}, function(err, content) {
     if (err) {
       return res.send(err);
     }
