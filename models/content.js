@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-var contentSchema = new Schema({
+var contentSchema = mongoose.Schema({
   rank: Number,
   type: String,
-  tags: String,
+  tags: [String],
   artist: String,
-  flags: String,
+  flags: [String],
   location: String
 });
 
