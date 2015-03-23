@@ -1,5 +1,10 @@
 <style> h3{text-align:center;}
-	h5{text-align:center;}</style>
+	h5{text-align:center;}
+	audio { width: 150px; display: block; margin:20px; }
+	color: #fff;
+  	background-color: #033649;
+ 	border-color: #036564;
+</style>
 
 <div class="panel panel-primary"  ng-init="expand = 0">
     <div class="panel-heading">
@@ -8,7 +13,7 @@
     </div>
 
     
-		<audio src="{{audioart.audio}}" type="audio/mpeg" preload="auto">
+		<audio src="{{audioart.audio}}" preload="auto" control>
 			Oops, no support.
 		</audio>
        

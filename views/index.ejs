@@ -36,7 +36,7 @@
 <!-- Begin Header -->
 <% include site-head.html  %>
 
-<body ng-app = "artBoard" ng-controller = "artCtrl as arts">
+<body ng-app = "artBoard" ng-controller = "artCtrl as arts" style="background-color:#B9B9FF">
 	<div id="wrapper">
 
 	<% include sidebar.html  %>
@@ -58,7 +58,7 @@
 
 				<!--WRITING ROW-->
 				<div class="row">
-					<h1>Highest Ranked Writing 
+					<h1> Highest Ranked Writing 
 					<small><a class ="btn btn-default" href="./top-writing" role = "button">
 						 More </a></p></small></h1>
 					<div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
@@ -70,7 +70,7 @@
 
 				<!--VISUAL MEDIA ROW-->
 				<div class="row">
-					<h1>Highest Ranked Art 
+					<h1> Highest Ranked Art 
 					<small><a class ="btn btn-default" href="./top-img" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-4" ng-repeat="imgart in arts.imgArt">
@@ -82,7 +82,7 @@
 
 				<!--AUDIO MEDIA ROW-->
 				<div class="row">
-					<h1>Highest Ranked Music 
+					<h1> Highest Ranked Music 
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
