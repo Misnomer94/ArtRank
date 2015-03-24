@@ -12,6 +12,8 @@ app.service('Art', function() {
 	{artist: 'Place Holder', title: 'Up There', img: '../media/way-up-there.jpg'},
 	{artist: 'Place Holder', title: 'Bricks', img: '../media/brick-wallpaper.jpg'},
 	{artist: 'Place Holder', title: 'Bricks', img: '../media/yosemite-stream.jpg'},
+	{artist: 'Place Holder', title: 'Bricks', img: '../media/horse.jpg'},	
+	{artist: 'Place Holder', title: 'Bricks', img: '../media/bonsai.jpg'},
   ];
 
   var audioArt = [

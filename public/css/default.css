@@ -28,15 +28,15 @@ iframe{
 }
 
 .fixed-size-panel {
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 170px;
+  max-height: 170px;
 }
 
 .img-in-panel{
-  max-height: 270px;
+  max-height: 140px;
   text-align: center;
-  width: auto;
-  margin: auto;
+  width: max;
+  margin: 0 auto;
   vertical-align: middle;
 }
 
