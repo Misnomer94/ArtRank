@@ -58,36 +58,36 @@
 
 				<!--WRITING ROW-->
 				<div class="row">
-					<h1> Highest Ranked Writing 
+					<h1 style="padding-left: 15px;">Highest Ranked Writing 
 					<small><a class ="btn btn-default" href="./top-writing" role = "button">
 						 More </a></p></small></h1>
 					<div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
 						
-						<% include writing-panel.html %>
+						<% include panel-writing.html %>
 	
 					</div>
 				</div>
 
 				<!--VISUAL MEDIA ROW-->
 				<div class="row">
-					<h1> Highest Ranked Art 
+					<h1 style="padding-left: 15px;"> Highest Ranked Art 
 					<small><a class ="btn btn-default" href="./top-img" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-3" ng-repeat="imgart in arts.imgArt">
       	
-						<% include img-panel.html  %>
+						<% include panel-img.html  %>
 				
 					</div>
 				</div>
 
 				<!--AUDIO MEDIA ROW-->
 				<div class="row">
-					<h1> Highest Ranked Music 
+					<h1 style="padding-left: 15px;"> Highest Ranked Music 
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
       	
-						<% include audio-panel.html  %>
+						<% include panel-audio.html  %>
 				
 					</div>
 				</div>

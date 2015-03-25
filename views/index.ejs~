@@ -44,8 +44,8 @@
 		<div id="page-content-wrapper">
 			
 			<!--JUMBOTRON-->
-			<div class = "container-fluid">
-				<div class="jumbotron" color=#456785>          <!-- Set this to only show if a user is logged in -->
+			<div class = "container-fluid" color=#456785>
+				<div class="jumbotron">          <!-- Set this to only show if a user is logged in -->
 					<h1>Welcome to ArtRank!</h1>
 					<p>The only art website designed for artists, not advertisers</p>
 					<p><a class="btn btn-primary btn-lg" href="./sign-up" role="button">
@@ -58,12 +58,12 @@
 
 				<!--WRITING ROW-->
 				<div class="row">
-					<h1> Highest Ranked Writing 
+					<h1 style="padding-left: 15px;">Highest Ranked Writing 
 					<small><a class ="btn btn-default" href="./top-writing" role = "button">
 						 More </a></p></small></h1>
 					<div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
 						
-						<% include writing-panel.html %>
+						<% include panel-writing.html %>
 	
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						 More </a></p></small></h1>	
 					<div class = "col-md-3" ng-repeat="imgart in arts.imgArt">
       	
-						<% include img-panel.html  %>
+						<% include panel-img.html  %>
 				
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 						 More </a></p></small></h1>	
 					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
       	
-						<% include audio-panel.html  %>
+						<% include panel-audio.html  %>
 				
 					</div>
 				</div>
