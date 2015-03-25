@@ -30,10 +30,12 @@ app.service('Art', function($http) {
 
   return {
     getImgArt: function(){
-      $http.get('/content').success(function(data){
+      //example http service call to get pictures from server side
+      /*
+      $http.get('/content/pictures').success(function(data){
         return data;
-      });
-
+      })
+      */
       return imgArt;
     },
 
