@@ -1,7 +1,7 @@
 var app = angular.module('artBoard', []);
 
 
-app.service('Art', function() {
+app.service('Art', function($http) {
   var imgArt = [
     	{artist: 'Place Holder', title: 'Washington', img: '../media/600x600.gif'},
     	{artist: 'Place Holder', title: 'Washi', img: '../media/300.gif'},
@@ -12,7 +12,7 @@ app.service('Art', function() {
 	{artist: 'Place Holder', title: 'Up There', img: '../media/way-up-there.jpg'},
 	{artist: 'Place Holder', title: 'Bricks', img: '../media/brick-wallpaper.jpg'},
 	{artist: 'Place Holder', title: 'Bricks', img: '../media/yosemite-stream.jpg'},
-	{artist: 'Place Holder', title: 'Bricks', img: '../media/horse.jpg'},	
+	{artist: 'Place Holder', title: 'Bricks', img: '../media/horse.jpg'},
 	{artist: 'Place Holder', title: 'Bricks', img: '../media/bonsai.jpg'},
   ];
 
@@ -30,6 +30,10 @@ app.service('Art', function() {
 
   return {
     getImgArt: function(){
+      $http.get('/content').success(function(data){
+        return data;
+      });
+
       return imgArt;
     },
 
