@@ -8,7 +8,7 @@
 	</div>
 	<div class="panel-body home-panel fixed-size-panel">
         	<div class="container-fluid">
-			 <iframe frameborder="0" src="{{txtart.txt}}" height=auto width=auto></iframe>
+			 <iframe margin-left=-1px frameborder="0" src="{{txtart.txt}}" height=auto width=auto></iframe>
 		</div>
 	</div>
 </div>

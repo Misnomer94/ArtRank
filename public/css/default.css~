@@ -37,7 +37,7 @@ iframe{
 }
 
 .img-in-panel{
-  max-height: 140px;
+  max-height: 150px;
   text-align: center;
   width: auto;
   margin: 0 auto;
