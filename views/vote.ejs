@@ -37,8 +37,8 @@
           <div>
             <style> h3{text-align:center;}
           	h5{text-align:center;}
-            img{max-height: 400px; min-height: 400px;}
-            home-panel{overflow: hidden;}
+            .img-responsive{max-height: 400px; min-height: 400px;}
+            .home-panel{overflow: hidden;}
             </style>
 
             <div class="panel panel-primary abisso-panel-primary"  ng-init="expandA = 0" style="background-color:#1A416F">
@@ -55,7 +55,7 @@
 
               <div class="expanded-img" ng-show="expandA == 1" ng-click="expandA = 0">
                   <h1 style="color: white"> {{imgart.title}} <small> By: {{imgart.artist}} </small> </h1>
-                  <img height="500px" ng-src="{{imgart.img}}" />
+                  <img ng-src="{{imgart.img}}" />
               </div>
           </div>
           </div>
@@ -87,7 +87,7 @@
 
               <div class="expanded-img" ng-show="expandB == 1" ng-click="expandB = 0">
                   <h1 style="color: white"> {{imgart.title}} <small> By: {{imgart.artist}} </small> </h1>
-                  <img height="500px" ng-src="{{imgart.img}}" />
+                  <img ng-src="{{imgart.img}}" />
               </div>
           </div>
           </div>
