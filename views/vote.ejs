@@ -35,11 +35,33 @@
         <div class = "row text-center">
           <p ng-hide = "1"> {{imgart = arts.imgArt[0]}} </p>
           <div>
-            <% include img-panel.html %>
-          </div> 
+            <style> h3{text-align:center;}
+          	h5{text-align:center;}
+            img{max-height: 400px; min-height: 400px;}
+            home-panel{overflow: hidden;}
+            </style>
+
+            <div class="panel panel-primary abisso-panel-primary"  ng-init="expandA = 0" style="background-color:#1A416F">
+              <div class="panel-heading">
+                  <h3>{{imgart.title}}</h3>
+                  <cite><h5> By: {{imgart.artist}}</h5></cite>
+              </div>
+
+              <div class="panel-body home-panel">
+                  <div class="container-fluid" ng-click="expandA = 1">
+                      <img class="img-responsive" ng-src="{{imgart.img}}" />
+                  </div>
+              </div>
+
+              <div class="expanded-img" ng-show="expandA == 1" ng-click="expandA = 0">
+                  <h1 style="color: white"> {{imgart.title}} <small> By: {{imgart.artist}} </small> </h1>
+                  <img height="500px" ng-src="{{imgart.img}}" />
+              </div>
+          </div>
+          </div>
         </div>
         <div class = "row text-center">
-          <a class = "btn btn-btn-primary btn-sm" href = "#vote1">Vote For This</a>
+          <a class = "btn btn-primary btn-sm" href = "#vote1">Vote For This</a>
         </div>
       </div>
   </div>
@@ -48,11 +70,30 @@
         <div class = "row text-center">
           <p ng-hide = "1"> {{imgart = arts.imgArt[1]}} </p>
           <div>
-            <% include img-panel.html %>
+          <style> h3{text-align:center;}
+          	h5{text-align:center;}</style>
+
+          <div class="panel panel-primary abisso-panel-primary"  ng-init="expand = 0" style="background-color:#1A416F">
+              <div class="panel-heading">
+                  <h3>{{imgart.title}}</h3>
+                  <cite><h5> By: {{imgart.artist}}</h5></cite>
+              </div>
+
+              <div class="panel-body home-panel">
+                  <div class="container-fluid" ng-click="expandB = 1">
+                      <img class="img-responsive" ng-src="{{imgart.img}}" />
+                  </div>
+              </div>
+
+              <div class="expanded-img" ng-show="expandB == 1" ng-click="expandB = 0">
+                  <h1 style="color: white"> {{imgart.title}} <small> By: {{imgart.artist}} </small> </h1>
+                  <img height="500px" ng-src="{{imgart.img}}" />
+              </div>
+          </div>
           </div>
         </div>
         <div class = "row text-center">
-          <a class = "btn btn-btn-primary btn-sm" href = "#vote2">Vote For This</a>
+          <a class = "btn btn--primary btn-sm" href = "#vote2">Vote For This</a>
         </div>
       </div>
     </div>

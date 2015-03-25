@@ -1,3 +1,5 @@
+
+
 <div class="panel panel-default home-panel">
 	<div class="panel-heading text-center">
 		<h4> NEW CONTENT </h4>
@@ -7,7 +9,7 @@
 			<a class="btn btn-default" href="#music" role="tab" data-toggle="tab">Audio</a>
 		</div>
 	</div>
-      	<div class="panel-body">
+      	<div class="panel-body carousel-body">
         	<div class="tab-content">
 			<div class="tab-pane active" id="img">
         	    		<div id="image-sidebar-carousel" class="carousel slide" data-ride="carousel">
@@ -62,13 +64,11 @@
                 			</div>
 
 	               			<!-- Controls -->
-	                		<a class="left carousel-control"
-						href="#text-sidebar-carousel" role="button" data-slide="prev">
+	                		<a class="left carousel-control" href="#text-sidebar-carousel" role="button" data-slide="prev">
 	                  			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         	          			<span class="sr-only">Previous</span>
         	        		</a>
-        	        		<a class="right carousel-control"
-						href="#text-sidebar-carousel" role="button" data-slide="next">
+        	        		<a class="right carousel-control" href="#text-sidebar-carousel" role="button" data-slide="next">
                   				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                   				<span class="sr-only">Next</span>
 					</a>
@@ -79,3 +79,15 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$('.carousel').carousel({interval: 5000}).on('slid.bs.carousel', function (e) {
+
+	var nextH = jQuery('.active.item').outerHeight();
+	$(this).find('.active.item').parent().animate({
+		height: nextH
+	}, 250);
+});
+</script>
+
+<!-- This script animates height changes in the carousel -->
