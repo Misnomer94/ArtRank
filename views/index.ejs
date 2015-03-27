@@ -7,7 +7,6 @@
     
 	<title>ArtRank</title>
 
-    <script src="lib/audiojs/audio.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="/scripts/art.js"></script>
     <script src="lib/jquery/dist/jquery.js"></script>
@@ -19,11 +18,29 @@
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
 <!-- Priming audio-->
-<script>
-  audiojs.events.ready(function() {
-    var as = audiojs.createAll();
-  });
-</script>
+	<script type="text/javascript" src="lib/audio-player/audio-player.js"></script>  
+        <script type="text/javascript">  
+            AudioPlayer.setup("lib/audio-player/player.swf", {  
+                width: 290,
+		animation: "no",
+		bg: "B9B9FF",
+		leftbg: "031634",
+		lefticon: "4F7DB2",
+		track: "ffffff",
+		tracker: "B8A173",
+		text: "000000",
+		righticon: "4F7DB2",
+		rightbg: "031634",
+		volslider: "4F7DB2",
+		skip: "ffffff",
+            });  
+        </script>  
+    	<!--<script src="lib/audiojs/audio.min.js"></script>
+	<script>
+	  audiojs.events.ready(function() {
+	    var as = audiojs.createAll();
+	  });
+	</script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

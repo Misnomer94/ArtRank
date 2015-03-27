@@ -6,7 +6,7 @@
  	border-color: #036564;
 </style>
 
-<div class="panel panel-primary abisso-panel-primary"  ng-init="expand = 0">
+<div class="panel panel-primary abisso-panel-primary"  ng-init="expand = 0" style="background-color:#1A416F">
     <div class="panel-heading">
         <h3>{{audioart.title}}</h3>
         <cite><h5> By: {{audioart.artist}}</h5></cite>

@@ -7,7 +7,6 @@
     
 	<title>ArtRank</title>
 
-    <script src="lib/audiojs/audio.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="/scripts/art.js"></script>
     <script src="lib/jquery/dist/jquery.js"></script>
@@ -19,11 +18,29 @@
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
 <!-- Priming audio-->
-<script>
-  audiojs.events.ready(function() {
-    var as = audiojs.createAll();
-  });
-</script>
+	<script type="text/javascript" src="lib/audio-player/audio-player.js"></script>  
+        <script type="text/javascript">  
+            AudioPlayer.setup("lib/audio-player/player.swf", {  
+                width: 290,
+		animation: "no",
+		bg: "B9B9FF",
+		leftbg: "031634",
+		lefticon: "4F7DB2",
+		track: "ffffff",
+		tracker: "CDB380",
+		text: "000000",
+		righticon: "4F7DB2",
+		rightbg: "031634",
+		volslider: "4F7DB2",
+		skip: "ffffff",
+            });  
+        </script>  
+    	<!--<script src="lib/audiojs/audio.min.js"></script>
+	<script>
+	  audiojs.events.ready(function() {
+	    var as = audiojs.createAll();
+	  });
+	</script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,7 +87,7 @@
 
 				<!--VISUAL MEDIA ROW-->
 				<div class="row">
-					<h1> Highest Ranked Art 
+					<h1 style="padding-left: 15px;"> Highest Ranked Art 
 					<small><a class ="btn btn-default" href="./top-img" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-3" ng-repeat="imgart in arts.imgArt">
@@ -82,7 +99,7 @@
 
 				<!--AUDIO MEDIA ROW-->
 				<div class="row">
-					<h1> Highest Ranked Music 
+					<h1 style="padding-left: 15px;"> Highest Ranked Music 
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
