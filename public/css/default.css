@@ -87,10 +87,11 @@ iframe{
 }
 
 .txt-in-panel {
-  overflow-y:auto;
+
   height: auto;
   width: 100%;
   display: block;
+  word-wrap: normal;
 }
 
 .sidebar-toggle {

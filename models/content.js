@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var contentSchema = mongoose.Schema({
+  title: String,
   rank: Number,
   type: String,
   tags: [String],

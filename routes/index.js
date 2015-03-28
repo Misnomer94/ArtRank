@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 
 var User = require('../models/user');
 
+var Content = require('../models/content')
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   User.findOne({}, function(err, user){
@@ -36,5 +38,33 @@ router.get('/faq', function(req, res, next) {
     console.log(user);
   });
 });
+
+
+var Content = require('../models/content');
+
+
+router.post('/img-upload', function(req,res,next){
+  //var db = req.db;
+  //var collection = db.get('contents');
+  // Submit to the DB
+  var t = req.body.title;
+  var a = req.body.artist;
+  console.log(t);
+  console.log(req.body)
+  /*var img = new Content({
+      "title": t,
+      "rank": 300,
+      "type": "img",
+      "tags": [],
+      "artist": a,
+      "flags": [],
+      "location": "" });
+
+  //img.save(function (err) {
+    //if (err) return console.error(err);
+    //console.log('woo');
+    });*/
+});
+
 
 module.exports = router;
