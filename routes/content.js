@@ -4,28 +4,27 @@ var mongoose = require('mongoose');
 
 var Content = require('../models/content');
 
-router.get('/test', function(req, res, next) {
-  Content.findOne({}, function(err, content){
-    if (err) {
-      return res.send(err);
-    }
 
-    res.json(content);
-  });
-});
+function getRandom(upperBound){
+  return Math.floor(Math.random() * (upperBound));
+}
 
+/*Route to query a matchup by type of media and tags*/
+router.get('/matchup/:type/:tags', function(req, res, next){
+  tagArray = req.params.tags.split(",");
+  Content.find({'type': req.params.type, 'tags': { $all: tagArray }}, function(err, content){
 
-//route for getting all content of type picture
-router.get('/pictures', function(req, res, next){
-  Content.find({'type': 'picture'}, function(err, content){
-    //if error, send the error
     if(err) {
       return res.send(err);
     }
+      var numElements = content.length;
+      matchArray = [];
+      matchArray.push(content[getRandom(numElements)]);
+      matchArray.push(content[getRandom(numElements)]);
+      res.json(matchArray);
+  })
+})
 
-    //else send the data from MongoDB as JSON response to the client
-    res.json(content);
-  });
-});
+
 
 module.exports = router;
