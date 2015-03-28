@@ -29,4 +29,12 @@ router.get('/upload', function(req, res, next) {
   });
 });
 
+router.get('/faq', function(req, res, next) {
+  User.findOne({}, function(err, user){
+    res.render('faq', { title: 'Express', user: user });
+
+    console.log(user);
+  });
+});
+
 module.exports = router;
