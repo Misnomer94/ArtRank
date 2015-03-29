@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 	<title>ArtRank</title>
 
     <script src="lib/angular/angular.js"></script>
@@ -18,9 +18,9 @@
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
 <!-- Priming audio-->
-	<script type="text/javascript" src="lib/audio-player/audio-player.js"></script>  
-        <script type="text/javascript">  
-            AudioPlayer.setup("lib/audio-player/player.swf", {  
+	<script type="text/javascript" src="lib/audio-player/audio-player.js"></script>
+        <script type="text/javascript">
+            AudioPlayer.setup("lib/audio-player/player.swf", {
                 width: 290,
 		animation: "no",
 		bg: "B9B9FF",
@@ -34,8 +34,8 @@
 		rightbg: "031634",
 		volslider: "4F7DB2",
 		skip: "ffffff",
-            });  
-        </script>  
+            });
+        </script>
     	<!--<script src="lib/audiojs/audio.min.js"></script>
 	<script>
 	  audiojs.events.ready(function() {
@@ -60,7 +60,7 @@
 	<% include sidebar.html  %>
 
 		<div id="page-content-wrapper">
-			
+
 			<!--JUMBOTRON-->
 			<div class = "container-fluid" color=#456785>
 				<div class="jumbotron">          <!-- Set this to only show if a user is logged in -->
@@ -70,43 +70,43 @@
 						Sign Up for an Account</a></p>
 				</div>
 			</div>
-		
+
 			<!--FEATURED CONTENT-->
 		  	<div class = "container-fluid">
 
 				<!--WRITING ROW-->
 				<div class="row">
-					<h1 style="padding-left: 15px;">Highest Ranked Writing 
+					<h1 style="padding-left: 15px;">Highest Ranked Writing
 					<small><a class ="btn btn-default" href="./top-writing" role = "button">
 						 More </a></p></small></h1>
 					<div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
-						
+
 						<% include panel-writing.html %>
-	
+
 					</div>
 				</div>
 
 				<!--VISUAL MEDIA ROW-->
 				<div class="row">
-					<h1 style="padding-left: 15px;"> Highest Ranked Art 
+					<h1 style="padding-left: 15px;"> Highest Ranked Art
 					<small><a class ="btn btn-default" href="./top-img" role = "button">
 						 More </a></p></small></h1>	
 					<div class = "col-md-3" ng-repeat="imgart in arts.imgArt">
-      	
+
 						<% include panel-img.html  %>
-				
+
 					</div>
 				</div>
 
 				<!--AUDIO MEDIA ROW-->
 				<div class="row">
-					<h1 style="padding-left: 15px;"> Highest Ranked Music 
+					<h1 style="padding-left: 15px;"> Highest Ranked Music
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
-						 More </a></p></small></h1>	
+						 More </a></p></small></h1>
 					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
-      	
+
 						<% include panel-audio.html  %>
-				
+
 					</div>
 				</div>
 			</div>

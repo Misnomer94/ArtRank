@@ -82,5 +82,18 @@ router.post('/vote_result', function(req, res){
   })
 })
 
+//API
+
+router.get('/:type', function(req, res, next){
+  Content.find({'type': req.params.type}, function(err, content){
+
+    if(err) {
+      return res.send(err);
+    }
+    res.json(content);
+
+  })
+})
+
 
 module.exports = router;

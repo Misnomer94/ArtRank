@@ -2,58 +2,63 @@ var app = angular.module('artBoard', []);
 
 
 app.service('Art', function($http) {
-  var imgArt = [
-    	{artist: 'Place Holder', title: 'Washington', img: '/media/600x600.gif'},
-    	{artist: 'Place Holder', title: 'Washi', img: '/media/300.gif'},
-    	{artist: 'Place Holder', title: 'Wngton', img: '/media/1000x500.gif'},
-	{artist: 'Place Holder', title: 'Music', img: '/media/music.jpg'},
-	{artist: 'Place Holder', title: 'Tree', img: '/media/tree.jpg'},
-	{artist: 'Place Holder', title: 'Animals', img: '/media/animals.jpg'},
-	{artist: 'Place Holder', title: 'Up There', img: '/media/way-up-there.jpg'},
-	{artist: 'Place Holder', title: 'Bricks', img: '/media/brick-wallpaper.jpg'},
-	{artist: 'Place Holder', title: 'Bricks', img: '/media/yosemite-stream.jpg'},
-	{artist: 'Place Holder', title: 'Bricks', img: '/media/horse.jpg'},
-	{artist: 'Place Holder', title: 'Bricks', img: '/media/bonsai.jpg'},
-  ];
 
-  var audioArt = [
-    	{artist: 'Place Holder', title: 'Washington', audio: "/media/preview.mp3"},
-    	{artist: 'Place Holder', title: 'Washi', audio: '/media/preview (1).mp3'},
-    	{artist: 'Place Holder', title: 'Wngton', audio: '/media/preview (2).mp3'},
-  ];
+  var imgArt;
 
-  var txtArt = [
-    {artist: 'Place Holdeer', title: 'Abstract Art', txt: '/media/O captain.txt'},
-    {artist: 'Place Holdeer', title: 'Abstract Art', txt: '/media/odetoanightengale.txt'},
-    {artist: 'Place Holdeer', title: 'Abstract Art', txt: '/media/ch1ofbravenewworld.txt'},
-  ];
+  var audioArt;
+
+  var txtArt;
 
   return {
-    getImgArt: function(){
-      //example http service call to get pictures from server side
-      /*
-      $http.get('/content/pictures').success(function(data){
-        return data;
-      })
-      */
-      return imgArt;
+    getImgArt: function(cb){
+
+
+     $http.get('/content/image').success(function(data){
+
+        var formattedData = JSON.stringify(data);
+        cb(this.imgArt, formattedData);
+
+     });
+
     },
 
     getTxtArt: function(){
-      return txtArt;
+      $http.get('/content/text').success(function(data){
+
+        var formattedData = JSON.stringify(data);
+        cb(this.imgArt, formattedData);
+        
+      });
     },
 
     getAudioArt: function(){
-      return audioArt;
+      $http.get('/content/audio').success(function(data){
+
+        var formattedData = JSON.stringify(data);
+        cb(this.imgArt, formattedData);
+
+      });
     },
   }
 
 });
 
+function setData(type, data){
+
+  type = data;
+  console.log("Data: " + data);
+
+}
+
+
+
 app.controller('artCtrl', ['Art', function(Art) {
-  this.imgArt = Art.getImgArt();
-  this.txtArt = Art.getTxtArt();
-  this.audioArt = Art.getAudioArt();
+
+
+  Art.getImgArt(setData);
+
+
+
 }]);
 
 
