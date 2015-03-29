@@ -7,6 +7,7 @@ var multer  = require('multer');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
+var AWS = require('aws-sdk');
 
 
 var routes = require('./routes/index');
@@ -14,7 +15,10 @@ var users = require('./routes/users');
 var content = require('./routes/content');
 
 var app = express();
-app.use(multer({ dest: './uploads/'}));
+var s3bucket = new AWS.S3({ params: {Bucket: 'artranks3'} });
+app.use(multer({ dest: './uploads'}));
+
+
 
 /*Connection to mongolab in parameters*/
 mongoose.connect('mongodb://artrankbackend:danadonis123@ds049161.mongolab.com:49161/artrankdb');

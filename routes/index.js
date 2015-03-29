@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
+var fs = require('fs');
+var AWS = require('aws-sdk');
 var User = require('../models/user');
 
 var Content = require('../models/content')
@@ -46,14 +47,37 @@ var Content = require('../models/content');
 
 
 router.post('/img-upload', function(req,res,next){
-  //var db = req.db;
-  //var collection = db.get('contents');
-  // Submit to the DB
+
   var t = req.body.title;
   var a = req.body.artist;
   console.log(t);
   console.log(req.body);
   console.log(req.files);
+
+/*AWS.config.update({     I don't have the credentials file working yet, so it can be hardcoded here
+  accessKeyId: "XXX",
+  secretAccessKey: "YYY",
+    });
+*/
+var s3 = new AWS.S3();
+
+
+  fs.readFile(req.files.image.path, function (err, data) {
+    if (err) { throw err; }
+    s3.putObject({
+      Bucket: 'artranks3',
+      Key: req.files.image.name,
+      Body: data,
+      ACL: 'public-read'
+    },
+    function(err,data) {
+      if (err) { throw err;}
+      else { console.log(data);}
+    });
+
+  });
+  //console.log(ret);
+  //console.log(s3.client.getObjectUrl());
   var img = new Content({
       "title": t,
       "rank": 900,
@@ -62,7 +86,7 @@ router.post('/img-upload', function(req,res,next){
       "artist": a,
       "comments": [],
       "flags": "none",
-      "location": req.files.image.path
+      "location": "https://s3-us-west-2.amazonaws.com/artranks3/" + req.files.image.name
   });
 
   img.save(function (err) {
