@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var elo = require('elo-rank')(15);
 
 var Content = require('../models/content');
-
-
 
 function getRandom(upperBound){
   if(upperBound === 1)
@@ -15,6 +14,13 @@ function getRandom(upperBound){
       randoms[1] = Math.floor(Math.random() * (upperBound));
     } while(randoms[0] === randoms[1]);
     return randoms;
+}
+
+/*Update query not being reflected on db*/
+function updateRank(newRank,pieceID){
+  console.log(newRank);
+  console.log(pieceID);
+  Content.update({ _id: pieceID},{$set: {rank: newRank}});
 }
 
 /*Route to query a matchup by type of media and tags*/
@@ -34,7 +40,24 @@ router.get('/matchup/:type/:tags', function(req, res, next){
   })
 })
 
-
+/*Route to post voting result*/
+router.post('/vote_result', function(req, res){
+  var match = [];
+  Content.find({'_id': { $in: [ req.body.winnerID, req.body.loserID ] }}, function(err,content){
+    if(err) {
+      return res.send(err);
+    }
+    var playerOne = content[0];
+    var playerTwo = content[1];
+    var expectedScoreOne = elo.getExpected(playerOne["rank"],playerTwo["rank"]);
+    var expectedScoreTwo = elo.getExpected(playerTwo["rank"],playerOne["rank"]);
+    resultOne = elo.updateRating(expectedScoreOne,1,playerOne["rank"]);
+    resultTwo = elo.updateRating(expectedScoreTwo,0,playerTwo["rank"]);
+    updateRank(resultOne, playerOne["_id"]);
+    updateRank(resultTwo, playerTwo["_id"]);
+    res.send(content);
+  })
+})
 
 
 module.exports = router;
