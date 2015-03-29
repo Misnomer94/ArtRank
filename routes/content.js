@@ -28,19 +28,5 @@ router.get('/pictures', function(req, res, next){
   });
 });
 
-//var imgC = mongoose.model('content', contentSchema);
-
-router.post('/img-upload', function(req,res,next){
-  var img = new Content({
-    title: req.body.title,
-    rank: 300,
-    type: "img",
-    tags: [],
-    artist: req.body.artist,
-    flags: [],
-    location: ""
-  });
-    img.save(function (err) {if (err) console.log ('Error on save!')});
-});
 
 module.exports = router;
