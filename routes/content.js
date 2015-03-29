@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var elo = require('elo-rank')(15);
-
+var User = require('../models/user');
 var Content = require('../models/content');
 
 function getRandom(upperBound){
@@ -25,18 +25,41 @@ function updateRank(newRank,pieceID){
 
 /*Route to query a matchup by type of media and tags*/
 router.get('/matchup/:type/:tags', function(req, res, next){
-  tagArray = req.params.tags.split(",");
+  var tagArray = req.params.tags.split(",");
   Content.find({'type': req.params.type, 'tags': { $all: tagArray }}, function(err, content){
 
     if(err) {
       return res.send(err);
     }
       var numElements = content.length;
-      random = getRandom(numElements);
-      matchArray = [];
+      var random = getRandom(numElements);
+      var matchArray = [];
       matchArray.push(content[random[0]]);
       matchArray.push(content[random[1]]);
-      res.json(matchArray);
+      //res.json(matchArray);
+      console.log(matchArray);
+      User.findOne({}, function(err, user){
+        res.render('vote', { title: 'Vote', user: user, matchArray: matchArray });
+      });
+  })
+})
+
+router.get('/matchup/:type', function(req, res, next){
+  Content.find({'type': req.params.type}, function(err, content){
+
+    if(err) {
+      return res.send(err);
+    }
+      var numElements = content.length;
+      var random = getRandom(numElements);
+      var matchArray = [];
+      matchArray.push(content[random[0]]);
+      matchArray.push(content[random[1]]);
+      //res.json(matchArray);
+      console.log(matchArray);
+      User.findOne({}, function(err, user){
+        res.render('vote', { title: 'Vote', user: user, matchArray: matchArray });
+      });
   })
 })
 

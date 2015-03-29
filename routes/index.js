@@ -50,16 +50,19 @@ router.post('/img-upload', function(req,res,next){
 
   var t = req.body.title;
   var a = req.body.artist;
+  var tags = req.body.tags;
+  var tArray = tags.split(" ");
   console.log(t);
+  console.log(tArray)
   console.log(req.body);
   console.log(req.files);
 
-/*AWS.config.update({     I don't have the credentials file working yet, so it can be hardcoded here
-  accessKeyId: "XXX",
-  secretAccessKey: "YYY",
-    });
-*/
-var s3 = new AWS.S3();
+  AWS.config.update({     //I don't have the credentials file working yet, so it can be hardcoded here
+    accessKeyId: "XXX",
+    secretAccessKey: "YYY",
+  });
+
+  var s3 = new AWS.S3();
 
 
   fs.readFile(req.files.image.path, function (err, data) {
@@ -81,8 +84,8 @@ var s3 = new AWS.S3();
   var img = new Content({
       "title": t,
       "rank": 900,
-      "type": "picture",
-      "tags": [],
+      "type": "image",
+      "tags": tArray,
       "artist": a,
       "comments": [],
       "flags": "none",
@@ -97,6 +100,5 @@ var s3 = new AWS.S3();
     }
   });
 });
-
 
 module.exports = router;

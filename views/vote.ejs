@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,15 +8,16 @@
 
 	<title>ArtRank</title>
 
-    <script src="lib/angular/angular.js"></script>
-    <script src="/scripts/art.js"></script>
-    <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../../../lib/angular/angular.js"></script>
+  <script src="../../../scripts/art.js"></script>
+  <script src="../../../lib/jquery/dist/jquery.js"></script>
+  <script src="../../../lib/bootstrap/dist/js/bootstrap.js"></script>
 
-    <!-- Bootstrap -->
-    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/default.css" rel="stylesheet">
-    <link href="/css/simple-sidebar.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="../../../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../../../css/default.css" rel="stylesheet">
+  <link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -26,77 +28,76 @@
     <![endif]-->
   </head>
 
-<% include site-head.html %>
+  <style> h3{text-align:center;}
+  h5{text-align:center;}
+  .img-responsive{max-height: 400px; min-height: 400px; max-width:100%;}
+  .home-panel{overflow: hidden; max-width: 90%;}
+  </style>
 
-<body ng-app = "artBoard" ng-controller = "artCtrl as arts">
+<% include site-head.html  %>
 
+
+<body ng-app = "artBoard" ng-controller = "artCtrl as arts" style="background-color:#B9B9FF">
+<div class = "container-fluid">
   <div class = "container-fluid col-md-5 pull-left">
       <div class = "pull-right">
         <div class = "row text-center">
-          <p ng-hide = "1"> {{imgart = arts.imgArt[0]}} </p>
           <div>
-            <style> h3{text-align:center;}
-          	h5{text-align:center;}
-            .img-responsive{max-height: 400px; min-height: 400px;}
-            .home-panel{overflow: hidden;}
-            </style>
-
-            <div class="panel panel-primary abisso-panel-primary"  ng-init="expandA = 0" style="background-color:#1A416F">
+            <div class="panel panel-in-container panel-primary abisso-panel-primary pull-right"  ng-init="expandA = 0" style="background-color:#1A416F">
               <div class="panel-heading">
-                  <h3>{{imgart.title}}</h3>
-                  <cite><h5> By: {{imgart.artist}}</h5></cite>
+                  <h3><%= matchArray[0].title %></h3>
+                  <cite><h5> By: <%= matchArray[0].artist %></h5></cite>
               </div>
 
-              <div class="panel-body home-panel">
+              <div class="panel-body">
                   <div class="container-fluid" ng-click="expandA = 1">
-                      <img class="img-responsive" ng-src="{{imgart.img}}" />
+                      <img class="img-responsive" ng-src="<%= matchArray[0].location %>" />
                   </div>
               </div>
 
               <div class="expanded-img" ng-show="expandA == 1" ng-click="expandA = 0">
-                  <h1 style="color: white"> {{imgart.title}} <small> By: {{imgart.artist}} </small> </h1>
-                  <img ng-src="{{imgart.img}}" />
+                  <h1 style="color: white"> <%= matchArray[0].title %> <small> By: <%= matchArray[0].artist %> </small> </h1>
+                  <img ng-src="<%= matchArray[0].location %>" />
               </div>
           </div>
           </div>
         </div>
-        <div class = "row text-center">
+        <div class = "row text-center pull-right" style = "margin-right: 32%;">
           <a class = "btn btn-primary btn-sm" href = "#vote1">Vote For This</a>
         </div>
       </div>
   </div>
-  <div class = "containter-fluid col-md-5 pull-right">
+  <div class = "container-fluid col-md-5 pull-right">
       <div class = "pull-left">
         <div class = "row text-center">
-          <p ng-hide = "1"> {{imgart = arts.imgArt[1]}} </p>
           <div>
-          <style> h3{text-align:center;}
-          	h5{text-align:center;}</style>
-
-          <div class="panel panel-primary abisso-panel-primary"  ng-init="expand = 0" style="background-color:#1A416F">
+          <div class="panel panel-in-container panel-primary abisso-panel-primary pull-left"  ng-init="expandB = 0" style="background-color:#1A416F">
               <div class="panel-heading">
-                  <h3>{{imgart.title}}</h3>
-                  <cite><h5> By: {{imgart.artist}}</h5></cite>
+                  <h3> <%= matchArray[1].title %></h3>
+                  <cite><h5> By:  <%= matchArray[1].artist %></h5></cite>
               </div>
 
-              <div class="panel-body home-panel">
+              <div class="panel-body">
                   <div class="container-fluid" ng-click="expandB = 1">
-                      <img class="img-responsive" ng-src="{{imgart.img}}" />
+                      <img class="img-responsive" ng-src=" <%= matchArray[1].location %>" />
                   </div>
               </div>
 
               <div class="expanded-img" ng-show="expandB == 1" ng-click="expandB = 0">
-                  <h1 style="color: white"> {{imgart.title}} <small> By: {{imgart.artist}} </small> </h1>
-                  <img ng-src="{{imgart.img}}" />
+                  <h1 style="color: white"> <%= matchArray[1].title %> <small> By: <%= matchArray[1].artist %> </small> </h1>
+                  <img ng-src="<%= matchArray[1].location %>">
               </div>
           </div>
           </div>
         </div>
-        <div class = "row text-center">
-          <a class = "btn btn--primary btn-sm" href = "#vote2">Vote For This</a>
+        <div class = "row text-center pull-left" style = "margin-left: 32%;">
+          <a class = "btn btn-primary btn-sm" href = "#vote2">Vote For This</a>
         </div>
       </div>
     </div>
+</div>
+
+
 </body>
 
 </html>

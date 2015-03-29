@@ -1,6 +1,12 @@
 <style> h3{text-align:center;}
 	h5{text-align:center;}</style>
 
+	<script>
+	function wordWrap(){
+	txtFrame.document.body.style.wordWrap = 'break-word';
+};
+	</script>
+
 <div class="panel panel-primary abisso-panel-primary">
 	<div class="panel-heading">
 		<h3>{{txtart.title}}</h3>
@@ -8,7 +14,14 @@
 	</div>
 	<div class="panel-body home-panel fixed-size-panel">
         	<div class="container-fluid">
-						<iframe class="txt-in-panel" frameborder="0" src="{{txtart.txt}}"></iframe>
+						<iframe id="txtFrame" name="txtFrame" class="txt-in-panel" frameborder="0" src="{{txtart.txt}}" onload = "wordWrap()"></iframe>
 					</div>
 	</div>
+	<script>
+	function wordWrap(){
+	document.getElementByID("txtFrame").document.body.style.wordWrap = 'break-word';
+	}
+	</script>
+
+
 </div>
