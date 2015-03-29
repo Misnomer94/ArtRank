@@ -33,6 +33,10 @@ iframe{
     max-width: 80%;
 }
 
+.center-wrapper{
+	text-align: center;
+}
+
 .fixed-size-panel {
   min-height: 170px;
   max-height: 170px;
