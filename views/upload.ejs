@@ -30,32 +30,14 @@
   </head>
 
 <% include site-head.html %>
-<div ng-app="fileUpload" ng-controller="UploadCtrl">
 
-<div class="container">
-  <div class = "row">
-
-    <h3> Upload Image Media </h3>
-
-    <form name="myForm">
-  	<fieldset><legend>Upload on form submit</legend>
-	     Artist: <input name="artist" ng-model="artist" size="39" required="" type="text">
-	     <i ng-show="myForm.artist.$error.required">*required</i><br>
-       Tags: <input name="tags" ng-model="tags" size="39" type="text"><br>
-       Tags: <input name="type" ng-model="type" size="39" type="text"><br>
-	     Picture: <input ng-file-select="" ng-model="file" name="file" accept="image/*" ng-file-change="generateThumb(file)" required="" type="file">
-	     <i ng-show="myForm.file.$error.required">*required</i>
-	  	 <br>
-
-		   <button ng-disabled="!myForm.$valid" ng-click="upload("image")">Submit</button>
-	     <img ng-show="file.dataUrl != null" ng-src="{{file.dataUrl}}" class="thumb">
-		   <span class="progress" ng-show="file.progress >= 0">
-			     <div class="ng-binding" style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
-		   </span>
-		   <span ng-show="file.result">Upload Successful</span>
-  	</fieldset>
-	<br>
+<form method="POST" enctype="multipart/form-data" action="/img-upload">
+    <p> Title: </p><input type="text" name="title"><br></br>
+    <p> Artist: </p><input type="text" name="artist"><br></br>
+    <p> File: </p><input type="file" name="image">
+    <input content-type type="submit" value="Submit">
 </form>
+
 </div>
 </div>
 </div>

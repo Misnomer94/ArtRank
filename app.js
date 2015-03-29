@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var multer  = require('multer');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
@@ -13,6 +14,7 @@ var users = require('./routes/users');
 var content = require('./routes/content');
 
 var app = express();
+app.use(multer({ dest: './uploads/'}));
 
 /*Connection to mongolab in parameters*/
 mongoose.connect('mongodb://artrankbackend:danadonis123@ds049161.mongolab.com:49161/artrankdb');
@@ -20,6 +22,8 @@ mongoose.connect('mongodb://artrankbackend:danadonis123@ds049161.mongolab.com:49
 var db = mongoose.connection;
 
 //load all files in models dir
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 fs.readdirSync(__dirname + '/models').forEach(function(filename){
   if(~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
@@ -32,8 +36,6 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/lib', express.static(path.join(__dirname, 'bower_components')));
