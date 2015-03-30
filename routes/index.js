@@ -65,10 +65,12 @@ router.post('/img-upload', function(req,res,next){
   console.log(req.body);
   console.log(req.files);
 
-  AWS.config.update({     //I don't have the credentials file working yet, so it can be hardcoded here
-    accessKeyId: "XXX",
-    secretAccessKey: "YYY",
-  });
+  //AWS.config.update({     //I don't have the credentials file working yet, so it can be hardcoded here
+    //accessKeyId: "XXX",
+    //secretAccessKey: "YYY",
+  //});
+
+
 
   var s3 = new AWS.S3();
 
