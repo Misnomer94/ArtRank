@@ -70,6 +70,7 @@ router.post('/img-upload', function(req,res,next){
     //secretAccessKey: "YYY",
   //});
 
+  AWS.config.loadFromPath('./.aws/config.json');
 
 
   var s3 = new AWS.S3();
