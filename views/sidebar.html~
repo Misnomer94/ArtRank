@@ -1,6 +1,7 @@
 <div id="sidebar-wrapper" class="wrapper" style="background-color:#4F7DB2">
-  <br/> <br/>
-	<div class = "col-md-11 pull-right">
+  
+<br/> <br/>
+	<div class = "col-md-12 pull-right">
     		<div class = "panel panel-default">
       			<div class = "panel-heading text-center">
         			<h4> VOTE NOW </h4>
@@ -18,7 +19,7 @@
       			</div>
     		</div>
 
-    		<br/> <br/>
+    		<br/>
 
 			<div class="center-wrapper">
 				<a class="btn btn-primary btn-sm" href="/upload" style="text-align: center; background-color: #031634" role="button">Upload Content</a>
