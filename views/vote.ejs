@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,11 +26,11 @@
     <![endif]-->
   </head>
 
-  <style> 
+  <style>
 	h3{text-align:center;}
   	h5{text-align:center;}
   	.img-responsive{
-		max-height: 100%; 
+		max-height: 100%;
 		padding-top: 20%;
 		min-width:100%;
 		max-width:100%;
@@ -49,8 +48,8 @@
   		padding-bottom: 0px;
   		padding-right: 0px;
   		padding-left: 0px;
-		min-width:400px;		
-		max-width: 400px;    	
+		min-width:400px;
+		max-width: 400px;
 		max-height: 500px;
 		position: relative;
   	}
@@ -66,7 +65,7 @@
         <div class = "pull-right">
             <div class = "row text-center">
             	<div>
-                	<div class="panel panel-in-container panel-primary abisso-panel-primary fixed-size-panel pull-right"  
+                	<div class="panel panel-in-container panel-primary abisso-panel-primary fixed-size-panel pull-right"
                     	ng-init="expandA = 0" style="background-color:#1A416F">
                        	<div class="panel-heading">
                         	<h3><%= matchArray[0].title %></h3>
@@ -80,7 +79,7 @@
                      	</div>
 
                        	<div class="expanded-img" ng-show="expandA == 1" ng-click="expandA = 0">
-                        	<h1 style="color: white"> <%= matchArray[0].title %> 
+                        	<h1 style="color: white"> <%= matchArray[0].title %>
 							<small> By: <%= matchArray[0].artist %> </small> </h1>
                         	<img ng-src="<%= matchArray[0].location %>" />
                      	</div>
@@ -92,13 +91,13 @@
             </div>
 		</div>
 	</div>
-  
+
 
 	<div class = "container-fluid col-md-5 pull-right">
       	<div class = "pull-left">
         	<div class = "row text-center">
          		<div>
-          			<div class="panel panel-in-container panel-primary abisso-panel-primary fixed-size-panel pull-left"  
+          			<div class="panel panel-in-container panel-primary abisso-panel-primary fixed-size-panel pull-left"
 							ng-init="expandB = 0" style="background-color:#1A416F">
               			<div class="panel-heading">
                  			<h3> <%= matchArray[1].title %></h3>
@@ -112,18 +111,25 @@
               			</div>
 
               			<div class="expanded-img" ng-show="expandB == 1" ng-click="expandB = 0">
-                  			<h1 style="color: white"> <%= matchArray[1].title %> 
+                  			<h1 style="color: white"> <%= matchArray[1].title %>
 							<small> By: <%= matchArray[1].artist %> </small> </h1>
                   			<img ng-src="<%= matchArray[1].location %>">
               			</div>
           			</div>
           		</div>
         	</div>
-        	<div class = "row text-center pull-left" style = "margin-left: 32%;">
-          		<a class = "btn btn-primary btn-sm" href = "#vote2">Vote For This</a>
-        	</div>
+
       	</div>
     </div>
+  </div>
+    <div class = "container-fluid">
+      <form method = "POST" enctype = "" action = "/content/vote_result">
+        <input type = "radio" name = "winnerID" value = <%= matchArray[0].id %>> W1
+        <input type = "radio" name = "winnerID" value = <%= matchArray[1].id %>> W2
+        <input type = "radio" name = "loserID" value = <%= matchArray[0].id %>> L1
+        <input type = "radio" name = "loserID" value = <%= matchArray[1].id %>> L2
+        <input type = "submit" value = "Submit">
+      </form>
 </div>
 
 

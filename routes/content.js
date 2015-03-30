@@ -20,7 +20,7 @@ function getRandom(upperBound){
 function updateRank(newRank,pieceID){
   console.log(newRank);
   console.log(pieceID);
-  Content.update({ _id: pieceID},{$set: {rank: newRank}});
+  Content.update({'_id': pieceID}, {'rank': newRank}).exec();
 }
 
 /*Route to query a matchup by type of media and tags*/
@@ -74,8 +74,8 @@ router.post('/vote_result', function(req, res){
     var playerTwo = content[1];
     var expectedScoreOne = elo.getExpected(playerOne["rank"],playerTwo["rank"]);
     var expectedScoreTwo = elo.getExpected(playerTwo["rank"],playerOne["rank"]);
-    resultOne = elo.updateRating(expectedScoreOne,1,playerOne["rank"]);
-    resultTwo = elo.updateRating(expectedScoreTwo,0,playerTwo["rank"]);
+    var resultOne = elo.updateRating(expectedScoreOne,1,playerOne["rank"]);
+    var resultTwo = elo.updateRating(expectedScoreTwo,0,playerTwo["rank"]);
     updateRank(resultOne, playerOne["_id"]);
     updateRank(resultTwo, playerTwo["_id"]);
     res.send(content);
