@@ -26,8 +26,8 @@ app.service('Art', function($http) {
       $http.get('/content/text').success(function(data){
 
         var formattedData = JSON.stringify(data);
-        cb(this.imgArt, formattedData);
-        
+        cb(this.txtArt, formattedData);
+
       });
     },
 
@@ -35,7 +35,7 @@ app.service('Art', function($http) {
       $http.get('/content/audio').success(function(data){
 
         var formattedData = JSON.stringify(data);
-        cb(this.imgArt, formattedData);
+        cb(this.audioArt, formattedData);
 
       });
     },
