@@ -17,7 +17,6 @@ app.service('Art', function($http) {
 
         var formattedData = JSON.stringify(data);
         cb(this.imgArt, formattedData);
-
      });
 
     },
@@ -55,7 +54,7 @@ function setData(type, data){
 app.controller('artCtrl', ['Art', function(Art) {
 
 
-  Art.getImgArt(setData);
+  this.imgArt = Art.imgArt;
 
 
 

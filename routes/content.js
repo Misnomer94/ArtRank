@@ -78,7 +78,8 @@ router.post('/vote_result', function(req, res){
     var resultTwo = elo.updateRating(expectedScoreTwo,0,playerTwo["rank"]);
     updateRank(resultOne, playerOne["_id"]);
     updateRank(resultTwo, playerTwo["_id"]);
-    res.send(content);
+    //res.send(content);
+    res.redirect('back');
   })
 })
 
