@@ -110,6 +110,7 @@ router.post('/img-upload', function(req,res,next){
       res.end("File uploaded!");
     }
   });
+  fs.unlink(req.files.image.path);
 });
 
 module.exports = router;
