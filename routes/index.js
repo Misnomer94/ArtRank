@@ -36,7 +36,7 @@ router.get('/upload', function(req, res, next) {
 
 router.get('/sign-up', function(req, res, next) {
   User.findOne({}, function(err, user){
-    res.render('/sign-up', { title: 'Express', user: user });
+    res.render('sign-up', { title: 'Express', user: user });
 
     console.log(user);
   });
