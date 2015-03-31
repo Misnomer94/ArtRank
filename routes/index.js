@@ -42,6 +42,14 @@ router.get('/sign-up', function(req, res, next) {
   });
 });
 
+router.get('/login', function(req, res, next) {
+  User.findOne({}, function(err, user){
+    res.render('login', { title: 'Express', user: user });
+
+    console.log(user);
+  });
+});
+
 router.get('/faq', function(req, res, next) {
   User.findOne({}, function(err, user){
     res.render('faq', { title: 'Express', user: user });
