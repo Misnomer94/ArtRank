@@ -78,7 +78,7 @@
                     	ng-init="expandA = 0" style="background-color:#1A416F">
                        	<div class="panel-heading">
                         	<h3><%= matchArray[0].title %></h3>
-                        	<cite><h5> By: <%= matchArray[0].artist %></h5></cite>
+                        	<cite><h5> By: <%= matchArray[0].artist %>  Rank: <%= matchArray[0].rank %></h5></cite>
                         </div>
 
                         <div class="panel-body">
@@ -95,8 +95,8 @@
                 	</div>
 				</div>
 			</div>
-			<form action="demo_form.asp">
-				Comments: <input type="text" name="FirstName">
+			<form method="POST" enctype="multipart/form-data" action="/img-upload">
+				Comments: <input type="text" name="comments">
 				<input type="submit" value="Submit">
 			</form>
             <div class = "row text-center pull-right" style = "margin-right: 45%;">
@@ -114,7 +114,7 @@
 							ng-init="expandB = 0" style="background-color:#1A416F">
               			<div class="panel-heading">
                  			<h3> <%= matchArray[1].title %></h3>
-                  			<cite><h5> By:  <%= matchArray[1].artist %></h5></cite>
+                  			<cite><h5> By:  <%= matchArray[1].artist %>  Rank: <%= matchArray[1].rank %></h5></cite>
               			</div>
 
               			<div class="panel-body">
@@ -131,7 +131,7 @@
           			</div>
           		</div>
 			<form action="demo_form.asp">
-				Comments: <input type="text" name="FirstName">
+				Comments: <input type="text" name="Comments">
 				<input type="submit" value="Submit">
 			</form>
         	</div>

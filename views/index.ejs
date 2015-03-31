@@ -79,7 +79,7 @@
 					<h1 style="padding-left: 15px;">Highest Ranked Writing
 					<small><a class ="btn btn-default" href="./top-writing" role = "button">
 						 More </a></p></small></h1>
-					<div class = "col-md-4" ng-repeat="txtart in arts.txtArt">
+					<div class = "col-md-4" ng-repeat="txtart in textArt | filter:query| orderBy:orderProp:true | limitTo:quantity">
 
 						<% include panel-writing.html %>
 
@@ -90,7 +90,7 @@
 				<div class="row">
 					<h1 style="padding-left: 15px;"> Highest Ranked Art
 					<small><a class ="btn btn-default" href="./top-img" role = "button">
-						 More </a></p></small></h1>
+						 More </a></small></h1>
 					<div class = "col-md-3" ng-repeat="imgart in imageArt | filter:query| orderBy:orderProp:true | limitTo:quantity">
 
 						<% include panel-img.html  %>
@@ -103,7 +103,8 @@
 					<h1 style="padding-left: 15px;"> Highest Ranked Music
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
 						 More </a></p></small></h1>
-					<div class = "col-md-4" ng-repeat="audioart in arts.audioArt">
+					<div class = "col-md-4" ng-repeat="audioart in audioArt | filter:query| orderBy:orderProp:true | limitTo:quantity">
+
 
 						<% include panel-audio.html  %>
 
