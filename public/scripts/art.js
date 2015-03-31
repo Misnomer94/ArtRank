@@ -65,6 +65,9 @@ app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
   });
   console.log($scope.imageArt);
 
+  $scope.orderProp = 'rank';
+  $scope.quantity = 4;
+
 
 
 }]);
