@@ -16,8 +16,12 @@ app.service('Art', function($http) {
      $http.get('/content/image').success(function(data){
 
         var formattedData = JSON.stringify(data);
-        cb(this.imgArt, formattedData);
-     });
+        cb(data);
+        //console.log(data);
+        //console.log(data.data);
+        }).error(function(data) {
+            console.log('Getting Images Failed');
+        });
 
     },
 
@@ -51,10 +55,15 @@ function setData(type, data){
 
 
 
-app.controller('artCtrl', ['Art', function(Art) {
+app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
 
-
-  this.imgArt = Art.imgArt;
+  Art.getImgArt(function(data){
+    console.log("IM HERE");
+    console.log(data);
+    $scope.imageArt = data;
+    console.log($scope.imageArt);
+  });
+  console.log($scope.imageArt);
 
 
 
