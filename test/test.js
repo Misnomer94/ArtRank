@@ -1,4 +1,4 @@
-//var router = require('../routes/users.js').router
+"use strict";
 var assert = require("assert")
 var request = require('supertest')
 var chai = require('chai')
@@ -6,16 +6,8 @@ var expect = chai.expect;
 var should = chai.should();
 var mongoose = require('mongoose')
 var express = require('express')
-//var app = express(); 
 var app = require('../app.js')
-//var user = require('../models/user.js')
-//var app = require('../routes/users.js')
 
-/*before(function(done) {
-	mongoose.connect('mongodb://artrankbackend:danadonis123@ds049161.mongolab.com:49161/artrankdb');
-	var db = mongoose.connection;
-	done();
-});*/
 
 describe('testing all endpoints', function() {
 	var user = {
@@ -24,7 +16,7 @@ describe('testing all endpoints', function() {
 		email: 'thinking@gmail.com'
 	}
 
-	var content = {
+	var winner = {
 		 title: 'Rudimentary',
  		 rank: 1200,
  		 type: 'image',
@@ -34,6 +26,19 @@ describe('testing all endpoints', function() {
  		 flags: [],
  		 location: 'someawslink'
 	}
+
+	var loser = {
+		 title: 'Loser',
+ 		 rank: 1200,
+ 		 type: 'image',
+ 		 tags: ['Portraits'],
+ 		 artist: 'Loo',
+ 		 comments:[],
+ 		 flags: [],
+ 		 location: 'someotherawslink'
+	}
+
+	var winnerLoser = [winner, loser];
 
 	it('get homepage', function(done) {
 		request(app)
@@ -58,7 +63,17 @@ describe('testing all endpoints', function() {
 			});
 	});
 
-	it('get matchup/type/tags', function(done) {
+	it('get matchup/type/', function(done) {
+		request(app)
+			.get('/matchup/:type')
+			.expect(404)
+			.end(function(err, res) {
+				res.status.should.equal(404);
+				done();
+			});
+	});
+
+	it('get matchup/type/tags should return 404 since not yet implemented', function(done) {
 		request(app)
 			.get('/matchup/:type/:tags')
 			.expect(404)
@@ -108,16 +123,32 @@ it('get login', function(done) {
 			});
 	});
 
+	it('should return 500 for post image since only saves image locally', function(done) {
+		request(app)
+			.post('/img-upload')
+			.send(user)
+			.end(function(err, res) {
+				res.status.should.equal(500);
+				done();
+			});
+	});
+
+	it('should return 404 since vote-results route not created yet', function(done) {
+		request(app)
+			.post('/vote-results')
+			.send(winnerLoser)
+			.end(function(err, res) {
+				res.status.should.equal(404);
+				done();
+			});
+	});
 });//closing
 
-/*'use strict';
+/*describe('Art', function() {
 
-//describe('Art', function() {
-
-
-//	describe('art.js tests', function(){
-		//	beforeEach(module('artBoard'));
-		/*it('should return correct length of imgArt, txtArt, and audioArt', inject(function($controller) {
+	describe('art.js tests', function(){
+			beforeEach(module('artBoard'));
+		it('should return correct length of imgArt, txtArt, and audioArt', inject(function($controller) {
 			var ctrl = $controller('artCtrl', ['Art', function(Art){
 				this.imgArt = getImgArt();
 				this.txtArt = getTxtArt();
@@ -128,8 +159,9 @@ it('get login', function(done) {
 			expect(ctrl.txtArt.length).to.equal(3);
 			expect(ctrl.audioArt.length).to.equal(3);
 		}));*/
-
-	/*	it('should return the correct fields of imgArt, txtArt, and audioArt', inject(function($controller) {
+	/*	describe('art.js tests', function(){
+			beforeEach(module('artBoard'));
+			it('should return the correct fields of imgArt, txtArt, and audioArt', inject(function($controller) {
 			var ctrl = $controller('artCtrl', ['Art', function(Art){
 				this.imgArt = getImgArt();
 				this.txtArt = getTxtArt();
@@ -175,39 +207,5 @@ it('get login', function(done) {
 				expect(ctrl.audioArt[i].audio).to.equal(audio[i].audio);
 			}
 		}));
-});
-*/
-
-//describe( 'tags', function() {
-	//var app = require('express');
-	/*define(['require'], function (require) {
-    var namedModule = require('express');
 });*/
-	//var request = require('supertest');
-	/*require(['supertest'], function(supertest) {
-
-	});*/
-	/*define(function (require) {
-    //Notice the space between require and the arguments.
-    var namedModule = require ('supertest');
-});*/
-
-	/*it('should store contents\'s tags correctly', function() {
-		
-	});
-
-});*/
-
-
 //}); //closing 
-
-/*describe( 'voting', function() {
-	it('should store vote correctly', inject(function($controller) {
-		var ctrl = $controller('', ['', function() {
-
-
-		}]);
-	}));
-});*/
-
-

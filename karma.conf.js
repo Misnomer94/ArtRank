@@ -15,15 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-     //'node_modules/requirejs/**/*.js',
-    //'node_modules/requirejs/require.js',
-   // 'node_modules/supertest/**/*.js',
     'bower_components/angular/angular.js',
     'bower_components/angular/angular-mocks.js',
-   // 'node_modules/require-stub/index.js',
-    'tests/test.js',
+    //'test/test.js',
+    'test/controllerTest.js',
     'public/scripts/art.js',
-     // 'test-main.js'
     ],
 
 
@@ -31,14 +27,9 @@ module.exports = function(config) {
     exclude: [
     ],
 
-    /*browserify: {
-      watch: true,
-      debug: true
-    },*/
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-     // '**/*.js': ['commonjs']
     },
 
 
