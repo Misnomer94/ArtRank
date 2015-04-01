@@ -1,14 +1,10 @@
-	/*describe('art.js tests', function(){
-			beforeEach(module('artBoard'));
-		it('should return correct length of imgArt, txtArt, and audioArt', inject(function($controller) {
-			var ctrl = $controller('artCtrl', ['Art', function(Art){
-				this.imgArt = getImgArt();
-				this.txtArt = getTxtArt();
-				this.audioArt = getAudioArt();
-			}]);
+describe('art.js tests', function(){
+      beforeEach(module('artBoard'));
 
-			expect(ctrl.imgArt.length).to.equal(11);
-			expect(ctrl.txtArt.length).to.equal(3);
-			expect(ctrl.audioArt.length).to.equal(3);
-		}));
-	});*/
+    it('should return true', inject(function($controller) {
+      var $scope = {};
+      var ctrl = $controller('artCtrl', {$scope: $scope});
+      expect($scope.orderProp).to.equal('rank');
+      expect($scope.quantity).to.equal(4);
+    }));
+  });

@@ -63,7 +63,7 @@ describe('testing all endpoints', function() {
 			});
 	});
 
-	it('get matchup/type/', function(done) {
+	it('get matchup/type/ should return 404 since route not yet created', function(done) {
 		request(app)
 			.get('/matchup/:type')
 			.expect(404)
@@ -73,7 +73,7 @@ describe('testing all endpoints', function() {
 			});
 	});
 
-	it('get matchup/type/tags should return 404 since not yet implemented', function(done) {
+	it('get matchup/type/tags should return route not yet created', function(done) {
 		request(app)
 			.get('/matchup/:type/:tags')
 			.expect(404)
@@ -209,3 +209,4 @@ it('get login', function(done) {
 		}));
 });*/
 //}); //closing 
+	
