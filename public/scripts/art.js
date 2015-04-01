@@ -1,77 +1,74 @@
 var app = angular.module('artBoard', []);
 
-
 app.service('Art', function($http) {
 
   var imgArt;
-
   var audioArt;
-
   var txtArt;
 
   return {
-    getImgArt: function(cb){
 
+    //Request JSON data from Image API
+    getImgArt: function(callback){
 
-     $http.get('/content/image').success(function(data){
+      $http.get('/content/image').success(function(data){
 
-        var formattedData = JSON.stringify(data);
-        cb(data);
-        //console.log(data);
-        //console.log(data.data);
+        callback(data);
+
         }).error(function(data) {
-            console.log('Getting Images Failed');
+
+        console.log("Failed GET request to /content/image");
+
         });
 
     },
 
-    getTxtArt: function(){
+    //Request JSON data from Text API
+    getTxtArt: function(callback){
+
       $http.get('/content/text').success(function(data){
 
-        var formattedData = JSON.stringify(data);
-        cb(this.txtArt, formattedData);
+        callback(data);
+
+      }).error(function(data){
+
+        console.log("Failed GET request to /content/text")
 
       });
     },
 
-    getAudioArt: function(){
+    //Request JSON data from Audio API
+    getAudioArt: function(callback){
+
       $http.get('/content/audio').success(function(data){
 
-        var formattedData = JSON.stringify(data);
-        cb(this.audioArt, formattedData);
+        callback(data);
+
+      }).error(function(data){
+
+        console.log("Failed GET request to /content/audio");
 
       });
-    },
+    }
+
+
   }
 
 });
 
-function setData(type, data){
-
-  type = data;
-  console.log("Data: " + data);
-
-}
-
-
 
 app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
-
-  Art.getImgArt(function(data){
-    console.log("IM HERE");
-    console.log(data);
-    $scope.imageArt = data;
-    console.log($scope.imageArt);
-  });
-  console.log($scope.imageArt);
 
   $scope.orderProp = 'rank';
   $scope.quantity = 4;
 
+  Art.getImgArt(function(data){
 
+    $scope.imageArt = data;
+
+  });
 
 }]);
-
 
 
 app.config(function($logProvider){
