@@ -2,10 +2,6 @@ var app = angular.module('artBoard', []);
 
 app.service('Art', function($http) {
 
-  var imgArt;
-  var audioArt;
-  var txtArt;
-
   return {
 
     //Request JSON data from Image API
@@ -17,7 +13,7 @@ app.service('Art', function($http) {
 
         }).error(function(data) {
 
-        console.log("Failed GET request to /content/image");
+        console.log("Error on GET request to /content/image");
 
         });
 
@@ -32,7 +28,7 @@ app.service('Art', function($http) {
 
       }).error(function(data){
 
-        console.log("Failed GET request to /content/text")
+        console.log("Error on GET request to /content/text")
 
       });
     },
@@ -46,7 +42,7 @@ app.service('Art', function($http) {
 
       }).error(function(data){
 
-        console.log("Failed GET request to /content/audio");
+        console.log("Error on GET request to /content/audio");
 
       });
     }
