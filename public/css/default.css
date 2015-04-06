@@ -113,6 +113,9 @@ iframe{
 
 }
 
+audio { width: 80%; display: block; margin:20px; }
+
+
 .panel-in-container {
   display: block;
   position: relative;

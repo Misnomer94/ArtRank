@@ -115,7 +115,7 @@ router.post('/img-upload', function(req,res,next){
     if (err) return console.error(err);
     else{
       console.log('woo');
-      res.end("File uploaded!");
+      res.redirect('/');
     }
   });
   fs.unlink(req.files.image.path);
