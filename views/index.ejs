@@ -12,6 +12,8 @@
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 
+
+
     <!-- Bootstrap -->
     <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="/css/default.css" rel="stylesheet">
@@ -74,24 +76,12 @@
 			<!--FEATURED CONTENT-->
 		  	<div class = "container-fluid">
 
-				<!--WRITING ROW-->
-				<div class="row">
-					<h1 style="padding-left: 15px;">Highest Ranked Writing
-					<small><a class ="btn btn-default" href="./top-writing" role = "button">
-						 More </a></p></small></h1>
-					<div class = "col-md-4" ng-repeat="txtart in textArt | filter:query| orderBy:orderProp:true | limitTo:quantity">
-
-						<% include panel-writing.html %>
-
-					</div>
-				</div>
-
 				<!--VISUAL MEDIA ROW-->
 				<div class="row">
 					<h1 style="padding-left: 15px;"> Highest Ranked Art
 					<small><a class ="btn btn-default" href="./top-img" role = "button">
 						 More </a></small></h1>
-					<div class = "col-md-3" ng-repeat="imgart in imageArt | filter:query| orderBy:orderProp:true | limitTo:quantity">
+					<div class = "col-md-3" ng-repeat="imgart in imageArt | filter:query | orderBy:orderProp:true | limitTo:iQuantity">
 
 						<% include panel-img.html  %>
 
@@ -103,13 +93,26 @@
 					<h1 style="padding-left: 15px;"> Highest Ranked Music
 					<small><a class ="btn btn-default" href="./top-audio" role = "button">
 						 More </a></p></small></h1>
-					<div class = "col-md-4" ng-repeat="audioart in audioArt | filter:query| orderBy:orderProp:true | limitTo:quantity">
+					<div class = "col-md-4" ng-repeat="audioart in audioArt | filter:query | orderBy:orderProp:true | limitTo:aQuantity">
 
 
 						<% include panel-audio.html  %>
 
 					</div>
 				</div>
+
+        <!--WRITING ROW-->
+        <div class="row">
+          <h1 style="padding-left: 15px;">Highest Ranked Writing
+          <small><a class ="btn btn-default" href="./top-writing" role = "button">
+             More </a></p></small></h1>
+          <div class = "col-md-4" ng-repeat="txtart in txtArt | filter:query| orderBy:orderProp:true | limitTo:tQuantity">
+
+            <% include panel-writing.html %>
+
+          </div>
+        </div>
+
 			</div>
 		</div>
 	</div>

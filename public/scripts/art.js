@@ -56,13 +56,35 @@ app.service('Art', function($http) {
 app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
 
   $scope.orderProp = 'rank';
-  $scope.quantity = 4;
+  $scope.iQuantity = 4;
+  $scope.tQuantity = 4;
+  $scope.aQuantity = 3;
+
 
   Art.getImgArt(function(data){
 
     $scope.imageArt = data;
 
   });
+
+  Art.getTxtArt(function(data){
+
+    $scope.txtArt = data;
+
+  });
+
+  Art.getAudioArt(function(data){
+
+    $scope.audioArt = data;
+
+  });
+
+  $scope.loadTxt =  	function (ele, url){
+  		console.log("HERE");
+  		console.log(ele);
+  		console.log(url);
+  		document.getElementById(ele).value = url;
+  	}
 
 }]);
 

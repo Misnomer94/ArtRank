@@ -6,6 +6,14 @@
 	txtFrame.document.body.style.wordWrap = 'break-word';
 };
 	</script>
+	<script>
+	function loadTxt(ele, url){
+		console.log("HERE");
+		console.log(ele);
+		console.log(url);
+		document.getElementById(ele).value = url;
+	}
+</script>
 
 <div class="panel panel-primary abisso-panel-primary">
 	<div class="panel-heading">
@@ -14,14 +22,11 @@
 	</div>
 	<div class="panel-body home-panel fixed-size-panel">
         	<div class="container-fluid">
-						<iframe id="txtFrame" name="txtFrame" class="txt-in-panel" frameborder="0" src="{{txtart.txt}}" onload = "wordWrap()"></iframe>
+						<!--<iframe id="txtFrame" name="txtFrame" class="txt-in-panel" frameborder="0" src="{{txtart.location}}" onload = "wordWrap()"></iframe>
+					-->
+					<button class = "btn-default btn-sm" ng-click = "loadTxt('{{txtart.title}}','{{txtart.location}}')"> </button>
+					<p id = "{{txtart.title}}"></p>
 					</div>
 	</div>
-	<script>
-	function wordWrap(){
-	document.getElementByID("txtFrame").document.body.style.wordWrap = 'break-word';
-	}
-	</script>
-
 
 </div>

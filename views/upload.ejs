@@ -32,11 +32,34 @@
 <% include site-head.html %>
 
 <h3> Upload Image Media </h3>
-<form method="POST" enctype="multipart/form-data" action="/img-upload">
+<form method="POST" enctype="multipart/form-data" action="/upload">
     <p> Title: </p><input type="text" name="title"><br></br>
     <p> Artist: </p><input type="text" name="artist"><br></br>
+    <input type="hidden" name = "type" value = "image">
     <p> Tags (Seperate tags with spaces and include at least one tag): </p><input type="text" name="tags"><br></br>
     <p> File: </p><input type="file" name="image" accept="image/*">
+    <input content-type type="submit" value="Submit">
+</form>
+<br/> <br/>
+
+<h3> Upload Written Media </h3>
+<form method="POST" enctype="multipart/form-data" action="/upload">
+    <p> Title: </p><input type="text" name="title"><br></br>
+    <p> Artist: </p><input type="text" name="artist"><br></br>
+    <input type="hidden" name = "type" value = "text">
+    <p> Tags (Seperate tags with spaces and include at least one tag): </p><input type="text" name="tags"><br></br>
+    <p> File: </p><input type="file" name="image">
+    <input content-type type="submit" value="Submit">
+</form>
+<br/> <br/>
+
+<h3> Upload Audio Media </h3>
+<form method="POST" enctype="multipart/form-data" action="/upload">
+    <p> Title: </p><input type="text" name="title"><br></br>
+    <p> Artist: </p><input type="text" name="artist"><br></br>
+    <input type="hidden" name = "type" value = "audio">
+    <p> Tags (Seperate tags with spaces and include at least one tag): </p><input type="text" name="tags"><br></br>
+    <p> File: </p><input type="file" name="image" accept = "audio/*">
     <input content-type type="submit" value="Submit">
 </form>
 

@@ -62,10 +62,11 @@ router.get('/faq', function(req, res, next) {
 var Content = require('../models/content');
 
 
-router.post('/img-upload', function(req,res,next){
+router.post('/upload', function(req,res,next){
 
   var t = req.body.title;
   var a = req.body.artist;
+  var type = req.body.type;
   var tags = req.body.tags;
   var tArray = tags.split(" ");
   console.log(t);
@@ -103,7 +104,7 @@ router.post('/img-upload', function(req,res,next){
   var img = new Content({
       "title": t,
       "rank": 900,
-      "type": "image",
+      "type": type,
       "tags": tArray,
       "artist": a,
       "comments": [],
