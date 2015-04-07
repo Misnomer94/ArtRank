@@ -1,4 +1,4 @@
-var app = angular.module('artBoard', []);
+var app = angular.module('artBoard', ['ui.bootstrap']);
 
 app.service('Art', function($http) {
 
@@ -59,11 +59,20 @@ app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
   $scope.iQuantity = 4;
   $scope.tQuantity = 4;
   $scope.aQuantity = 3;
-
+  $scope.selected = undefined;
+  $scope.tags = [];
 
   Art.getImgArt(function(data){
 
     $scope.imageArt = data;
+    /*for (int i = 0; i< $scope.imageArt.length; i++){
+      for (int j = 0; j < $scope.imageArt[i].tags.length; j++){
+        var tag = $scope.imgArt[i].tags[j].toLowerCase();
+        if (scope.tags.indexOf(tag) >= 0){
+          $scope.tags.push(tag);
+        }
+      }
+    }*/
 
   });
 
@@ -78,6 +87,22 @@ app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
     $scope.audioArt = data;
 
   });
+
+  $scope.tags = ['Test', 'help', 'photography', 'aaa', 'abc', 'abb', 'bca', 'horror', 'nature', 'tttt'];
+
+  /*function(){
+    $scope.tags = []
+    for (int i = 0; i< $scope.imgArt.length; i++){
+      for (int j = 0; j < $scope.imgArt[i].tags.length; j++){
+        var tag = $scope.imgArt[i].tags[j].toLowerCase();
+        if (scope.tags.indexOf(tag) >= 0){
+          $scope.tags.push(tag);
+        }
+      }
+    }
+  }*/
+
+  console.log("tags" + $scope.tags)
 
   $scope.loadTxt =  	function (ele, url){
   		console.log("HERE");

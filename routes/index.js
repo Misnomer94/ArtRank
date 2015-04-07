@@ -55,7 +55,7 @@ router.get('/gallery-img/:tag', function(req, res, next) {
   var tag = req.params.tag;
   User.findOne({}, function(err, user){
     console.log(tag);
-    res.render('gallery-img', { title: 'Image Gallery', user: user, tag: tags});
+    res.render('gallery-img', { title: 'Image Gallery', user: user, tag: tag});
     console.log(tag);
     console.log(user);
   });
@@ -76,6 +76,7 @@ router.get('/faq', function(req, res, next) {
     console.log(user);
   });
 });
+
 
 
 var Content = require('../models/content');

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app = "artBoard" ng-controller = "artCtrl as arts">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,8 @@
     <script src="../scripts/art.js"></script>
     <script src="../lib/jquery/dist/jquery.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+
 
 
 
@@ -35,10 +37,10 @@
     <![endif]-->
   </head>
 
-<!-- Begin Header -->
+
 <% include site-head.html  %>
 
-<body ng-app = "artBoard" ng-controller = "artCtrl as arts" style="background-color:#B9B9FF">
+<body  style="background-color:#B9B9FF">
   <div class = "container">
   <p><a class="btn btn-primary btn-lg" href="/content/matchup/image/<%= tag %>" role="button">Vote on this now!</a></p>
   <div class="row">
