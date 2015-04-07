@@ -88,6 +88,32 @@ app.controller('artCtrl', ['$scope', 'Art', function($scope, Art) {
 
 }]);
 
+app.filter('tagFilter', function () {
+  // function to invoke by Angular each time
+  // Angular passes in the `items` which is our Array
+  return function (items, tag) {
+    // Create a new Array
+    console.log(tag);
+      if(tag.length <= 0){
+        return items;
+      }
+    var filtered = [];
+    var lTag = tag.toLowerCase();
+    console.log(lTag);
+    // loop through existing Array
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      // check if the individual Array element is tagged with the tag
+      if (item.tags.indexOf(lTag) >= 0) {
+        // push it into the Array if it does!
+        filtered.push(item);
+      }
+    }
+    //return the Array after iteration's complete
+    return filtered;
+  };
+});
+
 
 app.config(function($logProvider){
     $logProvider.debugEnabled(true);

@@ -42,6 +42,25 @@ router.get('/sign-up', function(req, res, next) {
   });
 });
 
+router.get('/gallery-img', function(req, res, next) {
+  //var tag = req.params.tag;
+  User.findOne({}, function(err, user){
+    res.render('gallery-img', { title: 'Image Gallery', user: user, tag: ''});
+    //console.log(tag);
+    console.log(user);
+  });
+});
+
+router.get('/gallery-img/:tag', function(req, res, next) {
+  var tag = req.params.tag;
+  User.findOne({}, function(err, user){
+    console.log(tag);
+    res.render('gallery-img', { title: 'Image Gallery', user: user, tag: tags});
+    console.log(tag);
+    console.log(user);
+  });
+});
+
 router.get('/login', function(req, res, next) {
   User.findOne({}, function(err, user){
     res.render('login', { title: 'Express', user: user });
@@ -68,7 +87,13 @@ router.post('/upload', function(req,res,next){
   var a = req.body.artist;
   var type = req.body.type;
   var tags = req.body.tags;
-  var tArray = tags.split(" ");
+  if(tags.length > 0){
+    tags = tags.toLowerCase();
+    var tArray = tags.split(" ");
+  }
+  else{
+    var tArray = [];
+  }
   console.log(t);
   console.log(tArray)
   console.log(req.body);
