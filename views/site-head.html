@@ -124,10 +124,10 @@
 							<option value="audio">Audio</option>
 							<option value="text">Text</option>
 						</select>
-						<input id="tag" type="text" name="tag" ng-model="selected" typeahead="tag for tag in tags | filter:$viewValue | limitTo:8" class="form-control">
+						<input id="tag" type="text" name="tag" ng-model="selected" typeahead="tag for tag in tags | filter:$viewValue | limitTo:8" autocomplete = "off" class="form-control">
   				</div>
 					<button class = "btn-primary btn-btn-sm" value="Search" onclick="search()"> Search </button>
-</form>
+				</form>
 
 				<li>
 					<!--<pre>Model: {{selected | json}}</pre>-->
