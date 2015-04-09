@@ -21,34 +21,6 @@
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
 
-<!-- Priming audio-->
-	<script type="text/javascript" src="lib/audio-player/audio-player.js"></script>
-        <script type="text/javascript">
-            AudioPlayer.setup("lib/audio-player/player.swf", {
-                width: 290,
-		animation: "no",
-		bg: "B9B9FF",
-		leftbg: "031634",
-		lefticon: "4F7DB2",
-		track: "ffffff",
-		tracker: "4F7DB2",
-		text: "000000",
-		loader: "000000",
-		righticon: "4F7DB2",
-		rightbg: "031634",
-		volslider: "4F7DB2",
-		skip: "ffffff",
-            });
-        </script>
-
-
-    	<!--<script src="lib/audiojs/audio.min.js"></script>
-	<script>
-	  audiojs.events.ready(function() {
-	    var as = audiojs.createAll();
-	  });
-	</script>-->
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -105,18 +77,17 @@
 					</div>
 				</div>
 
-        <!--WRITING ROW-->
-        <div class="row">
-          <h1 style="padding-left: 15px;">Highest Ranked Writing
-          <small><a class ="btn btn-default" href="./top-writing" role = "button">
-             More </a></p></small></h1>
-          <div class = "col-md-4" ng-repeat="txtart in txtArt | filter:query| orderBy:orderProp:true | limitTo:tQuantity">
+        		<!--WRITING ROW-->
+        		<div class="row">
+          			<h1 style="padding-left: 15px;">Highest Ranked Writing
+          			<small><a class ="btn btn-default" href="./top-writing" role = "button">
+             			More </a></p></small></h1>
+          			<div class = "col-md-4" ng-repeat="txtart in txtArt | filter:query| orderBy:orderProp:true | limitTo:tQuantity">
 
-            <% include panel-writing.html %>
+           				<% include panel-writing.html %>
 
-          </div>
-        </div>
-
+          			</div>
+        		</div>
 			</div>
 		</div>
 	</div>
